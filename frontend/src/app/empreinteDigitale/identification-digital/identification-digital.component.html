@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <img *ngIf="!imageAccueil" src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+    assets/images/demat-1000x667.jpg 3x" class="image">
+  </div>
+  <div *ngIf="imageAccueil" class="col-lg-8 col-md-8 col-sm-8">
+    <img [src]="imageAccueil" srcset="imageAccueil 2x,
+    imageAccueil 3x" class="image">
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="login-page">
+      <div class="login-spacer"></div>
+      <div class="login-container">
+        <h2 class="float-left">
+          {{'authentification.digital' | translate}}
+        </h2><br><br><br>
+        <img src="assets/images/empreinte.bmp" class="image1">
+          <div class="buttons">
+            <div class="login">
+              <button mat-raised-button color="primary" type="button" (click)="identificationUser()" >{{'btn_login' | translate}}</button>
+            </div>
+            <div class="register">
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>

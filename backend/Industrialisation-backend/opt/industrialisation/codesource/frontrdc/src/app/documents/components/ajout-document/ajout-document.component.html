@@ -1,0 +1,67 @@
+<div class="login-page">
+    <div class="login-spacer"></div>
+    <div class="">
+      <h3 class="card-heading float-left">
+        <strong class="foncer">{{'document.ajout' | translate}}
+        </strong>
+      </h3>
+      <br><br>
+      <mat-radio-group appearance="fill"  [(ngModel)]="statusDocument"  name="statusDocument">
+        <mat-radio-button [value]="1">A signer</mat-radio-button>
+        <mat-radio-button [value]="2">A certifier</mat-radio-button>
+        <mat-radio-button [value]="3">A consulter</mat-radio-button>
+      </mat-radio-group>
+      <br><br>
+      <form class="" [formGroup]="FormulaireForm" (ngSubmit)="onSubmit()">
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{'document.titre' | translate}}</mat-label>
+          <mat-icon matSuffix>content_copy</mat-icon>
+          <input matInput placeholder="{{'document.titre' | translate}}" type="text" formControlName="dctTitre"
+            required>
+        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'document.auteur' | translate}}</mat-label>
+        <mat-icon matSuffix>perm_identity</mat-icon>
+        <input matInput placeholder="{{'document.auteur' | translate}}" type="text" formControlName="dctAuteur"
+          required>
+      </mat-form-field>
+        <div class="form-group input-group mymargin">
+          <mat-form-field appearance="fill">
+            <mat-label>{{'document.type' | translate}}</mat-label>
+            <mat-icon matSuffix>content_copy</mat-icon>
+            <mat-select placeholder="{{'document.type' | translate}}" formControlName="typeDocuments"
+                required>
+                <mat-option *ngFor="let typedoc of typeDocument" [value]="typedoc">{{typedoc.tydDescription}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+        <input type="file" formControlName="file"  accept="{{accept}}" (change)="uploadDocument($event)" required>
+      <br><br>
+        <mat-select-autocomplete appearance="fill" class="grid-7-11"
+        [placeholder]="'Options Selection'"
+        [errorMsg]="errorMessage"
+        [showErrorMsg]="showError"
+        [options]="options"
+        [display]="'utiPrenom'"
+        [value]="'utiId'"
+        [multiple]='true'
+        [labelCount]="3"
+        [selectedOptions]="selectedOptions"
+        (selectionChange)="getSelectedOptions($event)">
+      </mat-select-autocomplete>
+
+        <div class="buttons">
+          <div class="login"><br>
+            <button mat-stroked-button color="warn" (click)="closeDialog()" type="button">{{'Action.close' | translate}}</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!isUpload">{{'btn_valider' | translate}}</button>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+

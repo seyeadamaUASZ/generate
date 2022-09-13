@@ -1,0 +1,129 @@
+
+// .image{
+//   background: url("src/assets/images/long.png");
+//   // background-repeat: no-repeat;
+//   // background-size: cover;
+//   // opacity: 0.8;
+//   width: 1300px;
+//   height: 980px;
+//   margin: 0 40px 0 0;
+//   object-fit: contain;
+  
+// }
+
+mat-spinner{
+  width: 10%;
+}
+.centrer{
+  text-align: center;
+  margin: auto;
+}
+
+.center{
+  margin-bottom: 2%;
+  display: block;
+  margin:auto;
+  text-align: center;
+}
+.text-size{
+  font: 2px;
+}
+.login-page{
+  // background: white;
+}
+
+.login-spacer{
+  height: 20vh;
+}
+@media only screen and (max-width: 600px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 768px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+@media only screen and (min-width: 992px) {
+  div.login-container{
+    display: block;
+    margin-left: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+
+.login-container{
+  display:block;
+  margin: auto;
+  width: 100%;
+  padding: 2vh;
+  background: white;
+}
+.login-spacer1{
+  height: 40vh;
+}
+
+#lock-icon{
+  line-height: 56px;
+  color: #fff;
+}
+
+
+.buttons .login{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  
+}
+
+.buttons .login > button{
+  width: 100%;
+}
+
+.buttons .register{
+  width: 100%;
+  display: flex;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  justify-content:center;
+  margin: auto;
+}
+
+.industrialisation {
+  width: 297px;
+  height: 28px;
+  margin: 0 195px 58px 0;
+  font-family: GothamRounded;
+  font-size: 28px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.image{
+  height: 940px;
+}
+

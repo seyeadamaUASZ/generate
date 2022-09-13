@@ -1,0 +1,54 @@
+<div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='administrateur' || profil.proLibelle=='Integrateur' || profil.proLibelle=='integrateur'"> 
+  <div class="card">
+   <div class="card-header"  >{{'diagramme.nombreuserparprofil' | translate}}</div>
+   <div class="card-body">
+    <div class="row"> 
+      <div style="margin-left: auto; margin-right: 0;">
+      <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+        <mat-icon>more_vert</mat-icon> 
+      </button>
+      <button mat-button [matMenuTriggerFor]="menu"></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="visualiserBox(parambox='uti')">Visualiser</button>
+        <button mat-menu-item (click)="ShowHideButton()">Par mois</button>
+        <button mat-menu-item  (click)="ShowHideButton()">Par années</button>
+        <button mat-menu-item  (click)="openPDF()">Télécharger pdf</button>
+        <button mat-menu-item (click)="openExcel()">Télécharger excel</button>
+        <button mat-menu-item (click)="downloadCanvas($event)">Télécharger image</button>
+        <button mat-menu-item (click)="PrintImage($event)">Imprimer graphique</button>
+      </mat-menu>
+    </div>
+      </div>
+    <!--<div [chart]="chartbulle1"></div>-->
+    <div style="display: block;">
+      <canvas baseChart
+        [datasets]="bubbleChartData"
+        [options]="bubbleChartOptions"
+        [colors]="bubbleChartColors"
+        [legend]="bubbleChartLegend"
+        [chartType]="bubbleChartType">
+      </canvas>
+    </div>
+   </div>
+  </div>
+
+</div>
+
+<div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='demandeur'">
+  <div class="card">
+  <div class="card-header" style="background-color: #e2e8ee;font-weight: 500;">{{'diagramme.nombredossier' | translate}}</div>
+  <div class="card-body">
+    <div [chart]="chartbulle2"></div>
+  </div> 
+  </div>
+  </div>
+
+  <div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='traitant_n1' || profil.proLibelle=='traitant_N2'">
+    <div class="card">
+     <div class="card-header" style="background-color: #e2e8ee;font-weight: 500;">{{'diagramme.nombredossier' | translate}}</div>
+     <div class="card-body">
+      <div [chart]="chartbulle2"></div>
+     </div>
+    </div> 
+  </div>
+

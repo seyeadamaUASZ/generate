@@ -1,0 +1,113 @@
+<mat-tab-group>
+
+  <mat-tab>
+
+    <ng-template mat-tab-label>
+      <mat-icon class="mymargin" color="primary">view_agenda</mat-icon>
+   {{'formulaire.liste' | translate}}
+    </ng-template>
+    <mat-card>
+      <mat-card-header class="card-header">
+        <span class="header">{{'formulaire.liste' | translate}}</span>
+      </mat-card-header>
+      <div class="">
+
+        <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddForm()"
+          matTooltip="{{'formulaire.addForm' | translate}}">
+          <mat-icon>add</mat-icon>
+        </button><br>
+        <div class="row container-fluid diminuer">
+          <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let m of formulairenotgenere">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <!-- <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div> -->
+                <h3 class="card-category text-white center">{{m.frmNom}} </h3>
+
+              </div>
+              <div class="">
+                <div class="stats">
+                  <br>
+
+                  <img src="assets\images\gainde\form.png" class=" img_taille col-lg-12 col-md-12 col-sm-12"><br><br>
+                  <button class="taille" mat-mini-fab color="primary"  *ngIf="m.frmValider=='Modeliser'"
+                    (click)="validerFormulaire(m)" matTooltip="Valider">
+                    <mat-icon>done_outline</mat-icon>
+                  </button>
+
+                  <button class="taille float-right" mat-mini-fab color="success" (click)="openDialogEditForm(m)">
+                    <mat-icon matTooltip="Modification">
+                      edit
+                    </mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="mymargin" color="primary">view_agenda</mat-icon>
+      {{'formulaire.listeGenerate' | translate}}
+    </ng-template>
+    <mat-card>
+      <mat-card-header class="card-header">
+        <span class="header">{{'formulaire.liste' | translate}}</span>
+      </mat-card-header>
+      <br>
+      <br>
+      <mat-spinner class="center" *ngIf="loading" value="indeterminate"></mat-spinner>
+      <div class="row container-fluid">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let m of formulairegenere">
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <!-- <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div> -->
+              <h3 class="card-category text-white center">{{m.frmNom}} </h3>
+              <span class="text-white size" *ngIf="m.frmStatus">Generé</span>
+              <span class="text-white size" *ngIf="!m.frmStatus">Non generer</span><br>
+
+              <button mat-mini-fab color="accent" class="float-right" (click)="modeliserFormulaire(m)" *ngIf="m.frmValider=='Valider'"
+                matTooltip="Reutilisation">
+                <mat-icon >swap_horiz</mat-icon>
+              </button>
+              <button class="float-left" mat-mini-fab color="primary" class="" (click)="openDialogDupliquer(m)">
+                <mat-icon matTooltip="{{'formulaire.btnduppliquer' | translate}}">
+                  add
+                </mat-icon>
+              </button>
+            </div>
+            <!-- <div class="card-footer"> -->
+              <div class="">
+              <div class="stats"><br><br><br>
+                <!-- <i class="material-icons text-danger">warning</i> -->
+                <img src="assets\images\gainde\form.png" class="img_taille top col-lg-12 col-md-12 col-sm-12"><br>
+                <!-- <button class="taille" mat-mini-fab color="primary" (click)="genererFormulaire(m.frmId)"
+                  *ngIf="m.frmValider=='Valider'" matTooltip="{{'formulaire.btnGenerer' | translate}}">
+                  <mat-icon>settings</mat-icon>
+                </button>-->
+                <button class="taille" mat-mini-fab color="warn" (click)="supprimerFormulaire(m.frmId)">
+                  <mat-icon matTooltip="{{'formulaire.btndelete' | translate}}">
+                    delete
+                  </mat-icon>
+                </button>
+                <button class="taille" mat-mini-fab color="primary" class="float-right" (click)="openDialogViewForm(m)">
+                  <mat-icon matTooltip="{{'formulaire.btnappercu' | translate}}">
+                    visibility
+                  </mat-icon>
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group><br>

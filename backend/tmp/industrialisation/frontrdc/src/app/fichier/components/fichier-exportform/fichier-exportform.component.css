@@ -1,0 +1,24 @@
+.example-card { 
+  width: 100%;
+  margin: 10px auto; 
+}  
+
+.mat-card-header {   
+    text-align: center;   
+}
+
+.mat-card-title {   
+    text-align: center;
+   
+    width:100%;
+}
+
+.mat-card-content{
+    text-align: center;   
+    width:100%;
+}
+
+.mat-card-actions{  
+    width:100%;
+    padding:24px;
+}

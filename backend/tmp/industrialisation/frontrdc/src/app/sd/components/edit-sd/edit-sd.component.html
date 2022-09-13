@@ -1,0 +1,33 @@
+<div class="login-page">
+    <div class="login-spacer"></div>
+    <div class="">
+      <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+        <i id="lock-icon" class="material-icons">account_balance</i>
+      </div>
+      <h2 class="card-heading">
+        update sd</h2>
+      <form class="" [formGroup]="SdForm" (ngSubmit)="onSubmit()"> <mat-form-field>
+          <mat-icon matSuffix>fa-envelope</mat-icon>
+          <input matInput placeholder="Enter your email" type="email"
+            formControlName="email-1597160920710" required>
+        </mat-form-field>
+ <mat-form-field>
+          <mat-icon matSuffix>fa-envelope</mat-icon>
+          <input matInput placeholder="Enter your email" type="email"
+            formControlName="email-1597160922774" required>
+        </mat-form-field>
+ <mat-form-field>
+          <mat-icon matSuffix>fa-font</mat-icon>
+          <input matInput placeholder="Enter your name" type="text"
+            formControlName="text-1597160904814" required>
+        </mat-form-field>
+ <div class="buttons">
+          <div class="login">
+            <button mat-raised-button color="primary" type="submit">{{'btn_valider' | translate}}</button>
+            <button mat-raised-button color="warn" (click)="closeDialog()" type="button"
+              routerLink="/dashboard">{{'btn_fermer' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,114 @@
+
+mat-spinner{
+  width: 10%;
+}
+@media only screen and (max-width: 600px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 768px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+@media only screen and (min-width: 992px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  div.login-container{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 2vh;
+    background: white;
+  }
+}
+.centrer{
+  text-align: center;
+  margin: auto;
+}
+
+
+.center{
+  margin-bottom: 2%;
+  display: block;
+  margin:auto;
+  text-align: center;
+}
+.text-size{
+  font: 2px;
+}
+
+.style{
+font-style: oblique;
+color: rgb(185, 98, 98);
+}
+
+.login-spacer{
+  height: 20vh;
+}
+.login-spacee{
+  height: 40vh;
+}
+.login-space{
+  height: 12vh;
+}
+
+.login-container{
+  display: block;
+  margin: auto;
+  width: 400px;
+  padding: 2vh;
+  background: rgb(233, 217, 217);
+
+  .login-contain{
+    display: block;
+    margin: auto;
+    width: 400px;
+    padding: 2vh;
+    // background: rgb(27, 27, 27);
+  
+  }
+}
+
+.login-form{
+ display:list-item ;
+  flex-direction: column;
+}
+
+.buttons .login{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  
+}
+
+.buttons .login > button{
+  width: 100%;
+}
+
+.buttons .register{
+  display: flex;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  justify-content:center;
+  margin: auto;
+}
+.image{
+  height: 940px;
+}

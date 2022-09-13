@@ -1,0 +1,42 @@
+<!-- <div class="login-page">
+  <div class="login-spacer"></div>
+  <div class="">
+    <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+      <i id="lock-icon" class="material-icons">file_copy</i>
+    </div>
+    <h2 class="card-heading">
+      {{'formulaire.register' | translate}} </h2>
+    <form class="" [formGroup]="FormulaireForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-icon matSuffix>content_copy</mat-icon>
+        <input matInput type="file" formControlName="rptJrxmlFile"  accept="{{accept}}" (change)="uploadJrxmlFile($event)" required>
+      </mat-form-field>
+      <div class="buttons">
+        <div class="login">
+          
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="login-page">
+  <div class="login-spacer"></div>
+  <div class="">
+    <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+        <i id="lock-icon" class="material-icons">file_copy</i>
+    </div>
+    <h2 class="card-heading">
+      Import
+    </h2>
+    <br/>
+    <input type="file" formControlName="rptJrxmlFile"  accept="{{accept}}" (change)="uploadJrxmlFile($event)"  required>
+  </div>
+  <div class="buttons">
+    <div class="login">
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!isUpload">{{'btn_valider' | translate}}</button>
+      <button mat-raised-button color="warn" (click)="closeDialog()" type="button">{{'btn_fermer' | translate}}</button>
+    </div>
+  </div>
+</div>
+

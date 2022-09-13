@@ -1,0 +1,246 @@
+<section class="menu menu2 cid-sjq2uSAeZ4" once="menu" id="menu2-0">
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+    <div style="padding-left: 9%;">
+      <div class="navbar-brand">
+        <span class="navbar-logo">
+          <a href="index.html#top">
+            <img style=" width: 200px;height: 50px; margin: 15px 516px 25px 0;object-fit: contain;" *ngIf="appLogo"
+              src="{{appLogo}}" alt="Logo" class="">
+          </a>
+        </span>
+        <span *ngIf="!appLogo" class="navbar-caption-wrap"><a class="navbar-caption text-white text-primary display-7"
+            href="index.html#top">{{appName}}</a>
+        </span>
+        <!-- <div class="row">
+          <div class="col-sm-11"></div>
+          <div class="col-sm-1 ">
+            <div  style="font-size: 13px;margin-left: 20%;"> 
+              <a href="">Aide ?</a>
+            </div>
+           </div>
+
+              <div class="navbar-buttons mbr-section-btn" style="margin-top: -3%;">
+                  <a class="btn btn-primary display-4"  routerLink="/inscription">
+                      {{'landing.btnInscription' | translate}}</a>
+              </div> -->
+      </div>
+
+
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+
+
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 2%;">
+         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#content15-4">
+              {{'landing.apropos' | translate}}</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#features3-5">
+              {{'landing.services' | translate}}</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#content17-g">
+              FAQ</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4"
+              href="index.html#form5-7">{{'landing.contact' | translate}}</a>
+          </li>
+
+        </ul>
+        <div  style="font-size: 13px;margin-left: 40%;margin-top: -23%;"> 
+          <a href="">Aide ?</a>
+        </div>
+        <div class="navbar-buttons mbr-section-btn" style="margin-top: -3%;">
+          <a class="btn btn-primary display-4" routerLink="/inscription">
+            {{'landing.btnInscription' | translate}}</a>
+        </div>
+
+      </div> -->
+    <!-- <form [formGroup]="userForm">
+          <div class="form">
+             
+              <select class="decorer" [(ngModel)]="currentLangue" #selectedLang
+                  (change)="switchLang(selectedLang.value)" formControlName="uti_lng_id"
+                  (change)="getLangueId(selectedLang.value)">
+                  <option *ngFor="let language of Langues" [value]="language.lngLangue"
+                      [selected]="language.lngLangue === translate.currentLang">
+                      {{ language.lngLangue}}
+
+                  </option>&nbsp;&nbsp;
+              </select>
+          </div>
+      </form>&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+    <div style="font-size: 13px; margin-right: 12%;">
+      <a style="color: white;" routerLink="/landing">{{'landing.accueil' | translate}} </a>
+    </div>
+  </nav>
+</section>
+
+<div style="padding-left:11% ;padding-right:10%;padding-top: 4rem;">
+  <div class="row">
+    <div class="col-sm-8 col-lg-8 col-md-8 ">
+      <div><br>
+        <img *ngIf="!imageAccueil" src="assets/images/gainde.jpg" srcset="assets/images/gainde.jpg 2x,
+        assets/images/gainde.jpg 3x">
+      </div>
+      <div *ngIf="imageAccueil">
+        <img [src]="imageAccueil" class="image" srcset="imageAccueil 2x,
+        imageAccueil 3x">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <mat-card style="height:90%  ; border-radius: 10px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);  background-color: #fff; ">
+        <div>
+          <!-- <div class="login-spacer"></div> -->
+          <h4 *ngIf="bloquerInput" style="color: red;">
+            {{'essayerConnexionUlterieurement' | translate}}
+          </h4><br><br>     
+               <div class="login-container">
+            <div class="row">
+              <div class="col-sm-7">
+                <a style="font-size: 16px;">
+                  {{'login.authentification' | translate}}
+                </a>
+              </div>
+              <div class="col-sm-5">
+                  <!-- <button mat-button color="secondary" class="float-left" type="button" routerLink="forgetPwd">{{'pwd_oublie'
+                    |
+                    translate}}
+                    ?</button> -->
+                  <a  style="color: #928f8f;font-size: 10px;" 
+                    routerLink="forgetPwd">{{'pwd_oublie'|translate}}
+                    ?</a>
+              </div>
+            </div>
+
+
+
+            <br><br><br>
+            <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-icon matSuffix color="primary">perm_identity</mat-icon>
+                <input [readonly]="bloquerInput" matInput placeholder="{{'username' | translate}}"
+                  formControlName="username">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-icon matSuffix name="cone" color="primary" (click)="regarder()">{{lasse}}</mat-icon>
+                <input [readonly]="bloquerInput" matInput type="{{type}}" placeholder="{{'password' | translate}}"
+                  formControlName="password">
+              </mat-form-field><br><br>
+              <!-- <button mat-button color="primary" class="float-left" type="button" routerLink="forgetPwd">{{'pwd_oublie'
+                |
+                translate}}
+                ?</button> -->
+          
+              <div class="buttons">
+                <div class="login">
+                  <button mat-raised-button color="primary" type="submit" [class.spinner]="loading" [disabled]="loading"
+                    [disabled]="!loginForm.valid || bloquerInput">{{'btn_login' | translate}}</button>
+                </div>
+                <span class="First-Citizen-ID-Copy-2">
+                  Autres moyens de connexions
+                </span>
+                <div class="register">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="Rectangle-7">
+                        <div class="centrer">
+                          <mat-icon>video_call</mat-icon><br>
+                          <span style="font-size: 10px;">Reconnnaisance faciale
+                          </span>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="Rectangle-7">
+                        <div class="centrer">
+                          <mat-icon>touch_app</mat-icon><br>
+                          <span style="font-size: 10px;">Reconnnaisance digitale
+                          </span>
+                        </div>
+
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- <div class="">
+    <div class="row " >
+      <div style="padding-right: 2rem;" class="  col-lg-8 col-md-8 col-sm-8" >
+        <img  *ngIf="!imageAccueil" src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+        assets/images/demat-1000x667.jpg 3x" class="image">
+      </div>
+      <div *ngIf="imageAccueil"  class="col-lg-8 col-md-8 col-sm-8">
+        <img [src]="imageAccueil"  srcset="imageAccueil 2x,
+        imageAccueil 3x" >
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="login-page">
+          <div class="login-spacer"></div>
+          <h4 *ngIf="bloquerInput" style="color: red;">
+            {{'essayerConnexionUlterieurement' | translate}}
+          </h4><br><br><br>
+          <div class="login-container">
+            <h2 class="float-left">
+              {{'authentification.title' | translate}}
+            </h2><br><br><br>
+            <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <mat-form-field appearance="fill">
+                <mat-icon matSuffix color="primary">perm_identity</mat-icon>
+                <input [readonly]="bloquerInput" matInput placeholder="{{'username' | translate}}" formControlName="username">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-icon matSuffix name="cone" color="primary" (click)="regarder()">{{lasse}}</mat-icon>
+                <input [readonly]="bloquerInput" matInput type="{{type}}" placeholder="{{'password' | translate}}" formControlName="password">
+              </mat-form-field>
+              <button mat-button color="primary" class="float-left" type="button"
+                routerLink="forgetPwd">{{'pwd_oublie' | translate}}
+                ?</button>
+                <button *ngIf="isBioActive || isFaceActive" mat-button color="primary" class="float-right" type="button"
+                routerLink="autre">{{'autre' | translate}}
+                ?</button><br><br><br>
+              <div class="buttons">
+                <div class="login">
+                  <button mat-raised-button color="primary" type="submit" [class.spinner]="loading" [disabled]="loading"
+                    [disabled]="!loginForm.valid || bloquerInput">{{'btn_login' | translate}}</button>
+                </div>
+                <div class="register">
+    
+                 
+                </div>
+    
+              </div>
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

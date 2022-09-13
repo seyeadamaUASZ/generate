@@ -1,0 +1,32 @@
+<div >
+  <div class="card-header">
+          
+  <h2>
+   {{this.taskname}}
+  </h2>
+  </div>
+
+  <table style="margin-top: 5px;">
+    <div *ngFor="let tskoutpt of taskoutput">
+    <tr *ngIf="tskoutpt.name != 'processId' && tskoutpt.name != 'containerId' && tskoutpt.name != 'initiator';">
+      <th>{{tskoutpt.name}} : </th>
+      <td>{{tskoutpt.value}}</td>
+    </tr>
+  </div>
+  </table>
+
+
+  <form   [formGroup]="formGen" >
+      <div class="">
+          <div  *ngFor="let frm of form"> 
+          <mat-form-field #nomreq *ngIf="frm.readOnly == false; ">  
+            <input  matInput placeholder="{{frm.placeHolder}}" type="text" id="{{frm.name}}"  formControlName="{{frm.name}}"> 
+        </mat-form-field>
+          </div>         
+      </div>        
+      <div class="mat-dialog-actions">
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Finir</button>   
+        <button mat-raised-button color="warn" (click)="closeDialog()" type="button" >{{'Action.close' | translate}}</button>              
+</div>
+  </form>
+</div>

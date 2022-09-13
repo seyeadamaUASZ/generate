@@ -1,0 +1,1 @@
+ng new %1 --routing --style=scss

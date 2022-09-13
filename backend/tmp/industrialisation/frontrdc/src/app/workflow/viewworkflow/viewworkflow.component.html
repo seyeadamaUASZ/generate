@@ -1,0 +1,44 @@
+  <div >
+      <div class="card-header">
+              
+      <h2>
+          {{'workflow.view' | translate}} 
+      </h2>
+      </div>
+      <form class="" >
+          <div class="">
+              <div>
+                  <div class="mat-row" style="margin-top: 1em">
+                      <h4 >{{'nom' | translate}}</h4> 
+                      <mat-label> {{workflowview.name}} </mat-label>
+                  </div>
+                  
+                  <div class="mat-row" style="margin-top: 1em">
+                    <h4 >{{'description' | translate}}</h4>
+                    <mat-label> {{workflowview.description}} </mat-label>
+                  </div>
+                  <div class="mat-row" style="margin-top: 1em">
+                    <h4 >{{'groupeId' | translate}}</h4> 
+                    <mat-label> {{workflowview.groupId}} </mat-label>
+                </div>
+                <div class="mat-row" style="margin-top: 1em">
+                    <h4 >{{'version' | translate}}</h4> 
+                    <mat-label> {{workflowview.version}} </mat-label>
+                </div>
+                <div class="mat-row" style="margin-top: 1em">
+                    <h4 >{{'workflow.containerid' | translate}}</h4> 
+                    <mat-label> {{workflowview.wkfConteneur}} </mat-label>
+                </div>
+                <div class="mat-row" style="margin-top: 1em">
+                    <h4 >{{'workflow.processid' | translate}}</h4> 
+                    <mat-label> {{workflowview.wkfProcess_id}} </mat-label>
+                </div>
+              </div>         
+          </div>        
+          <div class="buttons" style="margin-top: 1em">
+              <div class="login">                  
+                  <button mat-raised-button color="warn" (click)="closeDialog()" type="button" >{{'Action.close' | translate}}</button>
+              </div>
+          </div>
+      </form>
+  </div>

@@ -1,0 +1,198 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h3 class="float-left">
+      <strong class="foncer"> {{'menu.paiement'| translate}}
+      </strong>
+    </h3>
+  </div>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="{{'Moyen Paiement' |translate}}"><br>
+    <br>
+<div *ngFor="let op of operateurs">
+  <div class="gallery" *ngIf="op.opaCode=='OPAY' && op.opaIsActive">
+    <a  (click)="openAjoutnfos()">
+      <img src="./assets/images/paiement/orbus.jpg" alt="Orbus Paiement" width="600" height="400">
+    </a>
+    <!-- <div class="desc">Add a description of the image here</div> -->
+  </div>
+  
+  <div class="gallery" *ngIf="op.opaCode=='OM' && op.opaIsActive">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="./assets/images/paiement/om1.jpg" alt="Orange Money" width="600" height="400">
+    </a>
+    <!-- <div class="desc">Add a description of the image here</div> -->
+  </div>
+  
+  <div class="gallery" *ngIf="op.opaCode=='Touchpay' && op.opaIsActive">
+    <a target="_blank"  href="touch12.jpg">
+      <img src="./assets/images/paiement/touch12.jpg" alt="Touch Pay" width="600" height="400">
+    </a>
+    <!-- <div class="desc">Add a description of the image here</div> -->
+  </div>
+  <div class="gallery" *ngIf="op.opaCode=='Wave' && op.opaIsActive">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="./assets/images/paiement/wave.png" alt="Wave Money" width="600" height="400">
+    </a>
+    <!-- <div class="desc">Add a description of the image here</div> -->
+  </div>
+  <div class="gallery"*ngIf="op.opaCode=='Free' && op.opaIsActive">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="./assets/images/paiement/free.jpg" alt="Free Money" width="600" height="400">
+    </a>
+    <!-- <div class="desc">Add a description of the image here</div> -->
+  </div>
+  
+</div>
+  </mat-tab>
+  <mat-tab label="{{'paiement.transaction'|translate}}">
+
+    <mat-card class="">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{'paiement.liste' | translate}}</mat-card-title>
+        <!-- <span class="header">{{'workflow.liste' | translate}}</span> -->
+      </mat-card-header><br>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'utilisateur.filtre' | translate}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      </mat-form-field>
+      <mat-menu #detail="matMenu">
+        <form [formGroup]="form">
+          <div *ngFor="let cd of columnDefinitions">
+            &nbsp;<mat-checkbox   [formControlName]="cd.def">{{cd.label}}&nbsp;
+            </mat-checkbox>
+          </div>       
+        </form>
+      </mat-menu>
+      <div class="">
+        <button class="float-right" mat-button [mat-menu-trigger-for]="detail" xPosition="before">
+          <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="secondary">
+        filter_alt
+          </mat-icon>
+        </button>
+        <table mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="reference_paiement">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'paiement.idFacture' | translate}} </th>
+            <td mat-cell *matCellDef="let element">{{element.paiIdFacture}}</td>
+          </ng-container>
+          <ng-container matColumnDef="montant">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'paiement.montantFacture' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.paiMontant}} </td>
+          </ng-container>
+          <ng-container matColumnDef="reference_client">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'paiement.numeroPaiement' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.paiReferencePaiement}} </td>
+          </ng-container>      
+         
+          <ng-container matColumnDef="date_paiement">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'paiement.date_paiement' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.paiDatePaiement | date: 'dd/MM/yyyy hh:mm'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'paiement.status' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.paiStatusTransaction}}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef><span style="margin-left: 6%;">
+                {{'register.action' | translate}}</span> </th>
+            <td mat-cell *matCellDef="let element" class="fab">
+              <button mat-button [mat-menu-trigger-for]="detail" yPosition="above">
+                <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="secondary">
+                  more_vert
+                </mat-icon>
+              </button>
+              <mat-menu #detail="matMenu">
+                <button mat-menu-item (click)="openDialogView(element.paiIdFacture)">
+                  <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="primary">
+                    visibility
+                  </mat-icon>{{'utilisateur.details'| translate}}
+                </button>
+                <!-- <button mat-menu-item (click)="openDialogEdit(element)">
+                  <mat-icon matTooltip="{{'Action.edit' | translate}}" color="secondary">
+                    edit</mat-icon>{{'Action.edit' | translate}}
+                </button> -->
+                <!-- <button mat-menu-item (click)=" openDialogDeleteWorkflow(element)">
+                  <mat-icon color="warn" matTooltip="{{'Action.delete' | translate}}">delete
+                  </mat-icon>{{'Action.delete' | translate}}
+                </button> -->
+               
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+          <tr mat-row *matRowDef="let row; columns: getDisplayedColumns()"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
+
+    </mat-card>
+  </mat-tab>
+  <!-- <mat-tab label="{{'paiement.paiement_physique'|translate}}">  </mat-tab> -->
+  <!-- <mat-tab label="{{'paiement.notification'|translate}}">
+    <mat-card class="">
+      <mat-card-header class="card-header centrer">
+        <mat-card-title>{{'paiement.liste' | translate}}</mat-card-title>
+      </mat-card-header><br>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'utilisateur.filtre' | translate}}</mat-label>
+        <input matInput (keyup)="applyFilter1($event)">
+      </mat-form-field>
+      <div class="mat-elevation-z8">
+        <table mat-table class="mat-elevation-z8" [dataSource]="dataSource1" matSort>
+          <ng-container matColumnDef="id_facture">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'facture.id' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.idFacture}}</td>
+          </ng-container>
+          <ng-container matColumnDef="montant_facture">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'facture.montant' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.montantFacture}}</td>
+          </ng-container>
+          <ng-container matColumnDef="statut_paiement">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'facture.statut' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.statutPaiement}} </td>
+          </ng-container>
+          <ng-container matColumnDef="numero_paiement">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'facture.numero_paiement' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.numeroPaiement}}</td>
+          </ng-container>
+          <ng-container matColumnDef="date_paiement">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'facture.date_paiement' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.datePaiement | date: 'dd/MM/yyyy hh:mm'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef><span style="margin-left: 6%;">
+                {{'register.action' | translate}}</span> </th>
+            <td mat-cell *matCellDef="let element" class="fab">
+              <button mat-button [mat-menu-trigger-for]="detail" yPosition="above">
+                <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="secondary">
+                  more_vert
+                </mat-icon>
+              </button>
+              <mat-menu #detail="matMenu">
+                <button mat-menu-item (click)="openDialogView(element.paiReferencePaiement)">
+                  <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="primary">
+                    visibility
+                  </mat-icon>{{'utilisateur.details'| translate}}
+                </button>   
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
+
+    </mat-card>  
+  </mat-tab> -->
+</mat-tab-group>

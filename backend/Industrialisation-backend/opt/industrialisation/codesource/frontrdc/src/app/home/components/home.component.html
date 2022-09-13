@@ -1,0 +1,52 @@
+<div *ngFor="let widget of widgets">
+  <div *ngIf="widget.wdgCode=='nbr_by_mdl'">
+    <div class="row">
+      <div class="col-sm-12">
+        <app-stats> </app-stats>
+      </div>
+
+    </div>
+  </div>
+</div><br>
+<div *ngFor="let widget of widgets">
+  <div *ngIf="widget.wdgCode=='stats_costumer'">
+    <div class="row">
+      <div class="col-sm-12">
+        <app-stats-costumer> </app-stats-costumer>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<br>
+<div *ngIf="b && l">
+    <div class="row" >
+      <div class="col-sm-6">
+          <app-wkform-courbe></app-wkform-courbe>
+      </div>
+      <div class="col-sm-6">
+          <app-users-barre></app-users-barre>
+      </div>
+    </div>
+    
+</div>
+<div *ngIf="b && !l ">
+ 
+  <div class="row" >
+    <div class="col-sm-6">
+        <app-users-barre></app-users-barre>
+    </div>
+  </div>
+</div>
+<div *ngIf="l && !b">
+  <div class="row" >
+    <div class="col-sm-6">
+      <app-wkform-courbe></app-wkform-courbe>
+    </div>
+  </div>
+  
+</div>
+
+

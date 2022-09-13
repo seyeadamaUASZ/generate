@@ -1,0 +1,23 @@
+<div >
+  <div class="card-header">
+          
+  <h2> 
+    {{this.workflow.name}}
+  </h2>
+  </div>
+  <form   [formGroup]="formGen"  >
+      <div class="">
+          <div  *ngFor="let frm of form"> 
+            <mat-form-field>
+              <mat-icon matSuffix>compare_arrows</mat-icon>
+              <input  matInput placeholder="{{frm.placeHolder}}" type="text" id="{{frm.name}}" formControlName="{{frm.name}}"> 
+          </mat-form-field> 
+          </div>         
+         
+      </div>        
+      <div class="mat-dialog-actions">
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" >{{'Action.save' | translate}}</button>  
+        <button mat-raised-button color="warn" (click)="closeDialog()" type="button" >{{'Action.close' | translate}}</button>                  
+</div> 
+  </form>
+</div>

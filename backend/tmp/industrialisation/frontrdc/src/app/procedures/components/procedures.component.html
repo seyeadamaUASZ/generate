@@ -1,0 +1,42 @@
+<mat-tab-group>
+
+  <mat-tab>
+
+    <ng-template mat-tab-label>
+      <mat-icon class="mymargin" color="primary">view_agenda</mat-icon>
+  
+    </ng-template>
+    <mat-card>
+      <mat-card-header class="card-header">
+        <span class="header"></span>
+      </mat-card-header>
+      <div class="">
+
+        <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddSecteur()"
+            matTooltip="{{'workflow.addsecteur' | translate}}">
+            <mat-icon>add</mat-icon>
+        </button><br>
+        <div class="row container-fluid diminuer">
+          <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let space of spaces">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon"> 
+                <h3 class="card-category text-white center"> {{space.name}}</h3> 
+              </div>
+              <div class="">
+                <div class="stats"> 
+                  <img src="assets\images\gainde\office-sector.jpg" class="img-responsive">
+                   
+                  <button  mat-raised-button color="primary" type="button" (click)="accessprocess(space.name)">
+                    Entrer
+                 </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+ 
+</mat-tab-group> 
+

@@ -1,0 +1,139 @@
+<span class="route">{{'dashboard.home' | translate }} > {{'dashboard.application' | translate }}</span>
+<mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+  <mat-grid-tile>
+    <p class="number">{{nbrIntegrateur}}</p>
+    <span class="type">{{'formulaire.nombre' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrCommerciaux}}</p>
+    <span class="type">{{'workflow.nombre' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrAppli}}</p>
+    <span class="type">{{'application.nombre' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrModule}}</p>
+    <span class="type">{{'module.nombre' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrConnect}}</p>
+    <span class="type">{{'connecte' | translate}}</span>
+  </mat-grid-tile>
+</mat-grid-list>
+<br>
+
+<mat-tab-group [selectedIndex]="tabIndex">
+  <mat-tab>
+    <ng-template mat-tab-label> {{'application.titre' | translate}}
+
+      <mat-icon class="mymargin" color="primary">portrait</mat-icon>
+    </ng-template>
+    <mat-card>
+      <mat-card-header class="card-header">
+        <span class="header">{{'application.liste' | translate}}</span>
+      </mat-card-header>
+      <!-- <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddApp()" -->
+      <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddApp()"
+
+        matTooltip="{{'application.ajout_app' | translate}}">
+        <mat-icon>add</mat-icon>
+      </button><br>
+      <mat-form-field>
+        <mat-label>{{'utilisateur.filtre' | translate}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>
+      <div class="">
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+        <table mat-table class=" mat-elevation-z8" [dataSource]="dataSource" matSort>
+
+          <!-- Position Column -->
+          <!-- <ng-container matColumnDef="appId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.appId}} </td>
+          </ng-container> -->
+          <!-- Name Column -->
+          <ng-container matColumnDef="appNom">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'application.nom' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.appNom}} </td>
+          </ng-container>
+          <!-- Weight Column -->
+          <!-- <ng-container matColumnDef="appAdresse">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'application.adresse' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.appAdresse}} </td>
+          </ng-container>
+          <ng-container matColumnDef="appNinea">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'application.ninea' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.appNinea}} </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="appNomEntreprise">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'application.nom_entreprise' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.appNomEntreprise}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <!-- <ng-container matColumnDef="appEmail">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'application.email' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.appEmail}} </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef><span style="margin-left: 25%;">
+                {{'register.action' | translate}}</span> </th>
+            <td mat-cell *matCellDef="let element" class="fab">
+              <mat-icon matTooltip="{{'application.details'| translate}}" color="primary" (click)="openDialogUpdate(element)">
+                visibility
+              </mat-icon>
+              <!-- <mat-icon color="secondary" (click)="statut(element)">lock</mat-icon> -->
+
+              <mat-icon color="secondary" matTooltip="{{'application.update'| translate}}" (click)="openDialogEtapeCreation(element)">edit
+              </mat-icon>
+              <mat-icon color="warn" matTooltip="{{'application.delete'| translate}}" (click)="openDialogDeleteApplication(element)">delete
+              </mat-icon>
+              <mat-icon color="primary" matTooltip="{{'application.btnGenerer' | translate}}" (click)="openDialogDupliquer(element.appId)">settings
+              </mat-icon>
+              <mat-icon color="primary" matTooltip="{{'application.btnTelecharger' | translate}}" (click)="download(element.appId)">cloud_download
+              </mat-icon>
+            </td>
+
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddModule()"
+      matTooltip="{{'module.add' | translate}}">
+      <mat-icon>add</mat-icon>
+    </button><br><br>
+    <ng-template mat-tab-label>
+      <mat-icon class="mymargin" color="primary">view_agenda</mat-icon>
+      {{'module.titre' | translate}}
+      </ng-template>
+    <div class="row container-fluid">
+      <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let m of module">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <!-- <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div> -->
+            <h3 class="card-category text-white center">{{m.modNom}}</h3>
+          </div>
+          <div class="card-footer ">
+            <div class="stats center">
+              <!-- <i class="material-icons text-danger">warning</i> -->
+              <button mat-button  color="primary"  (click)="openDialogFonctionnaliteApplication(m)">{{'application.Ouvrir'| translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group><br>

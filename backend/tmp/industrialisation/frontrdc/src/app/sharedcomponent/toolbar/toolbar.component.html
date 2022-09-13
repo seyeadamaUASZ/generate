@@ -1,0 +1,85 @@
+<mat-toolbar fxShow="true" fxHide.lt-md="true" style="display:flex">
+  <div>
+    <button class="sidenav-toggle" mat-button (click)="toggleSidenav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{'industrialisation' | translate}} </span>
+  </div>
+  <span class="example-spacer"></span>
+  <ngx-avatar name="{{prenom}} {{nom}}" class="aligner" size="40" *ngIf="!user?.utiLogo"></ngx-avatar>
+  <ngx-avatar [src]="logo" class="aligner" size="40" *ngIf="user?.utiLogo"></ngx-avatar>
+  <form [formGroup]="userForm">
+  <div class="form" >
+    <span class="mymargin">
+      {{prenom}} {{ nom |uppercase}} :&nbsp; 
+      {{profileLibelle}}
+    </span>&nbsp;
+    <select class="decorer" [(ngModel)]="currentLangue" #selectedLang (change)="switchLang(selectedLang.value)" formControlName="uti_lng_id"
+      (change)="getLangueId(selectedLang.value)">
+      <option *ngFor="let language of Langues" [value]="language.lngLangue"
+        [selected]="language.lngLangue === translate.currentLang">
+        {{ language.lngLangue }}
+      </option>
+    </select>
+  </div>
+  </form>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #parametre="matMenu" x-position="before">
+    <button mat-menu-item>
+      <mat-icon color="warn">notifications_off</mat-icon> {{'desact-notification' | translate}}
+    </button>
+    <button mat-menu-item (click)="toggleDir.emit()">
+      <mat-icon color="primary">laptop</mat-icon>RTL
+    </button>
+    <button *ngIf='AfficheApparence===true' mat-menu-item routerLink="/utilisateur/parametre">
+      <mat-icon color="primary">airplay</mat-icon>{{'apparence' | translate}}
+    </button>
+  </mat-menu>
+  <button mat-mini-fab color="primary" class="mymargin" [mat-menu-trigger-for]="themeMenu"
+    matTooltip="{{'theme' | translate}}" tabindex="-1">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button [matMenuTriggerFor]="parametre" mat-menu-item>
+      <mat-icon color="primary">settings</mat-icon><span>{{'parametre' | translate}}</span>
+    </button>
+    <button mat-menu-item (click)="openDialog()">
+      <mat-icon color="warn">vpn_key</mat-icon>{{'changePwd' | translate}}
+    </button>
+    <button mat-menu-item routerLink="/utilisateur/monCompte">
+      <mat-icon color="secondary">account_box</mat-icon> {{'compte' |translate}}
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon color="primary">exit_to_app</mat-icon>{{'log_out' |translate}}
+    </button>
+  </mat-menu>
+  <mat-menu class="theme-picker-menu" #themeMenu="matMenu" x-position="before">
+    <mat-grid-list cols="2">
+      <mat-grid-tile *ngFor="let theme of Themes">
+        <div mat-menu-item (click)="switchTheme(theme.thmName)" (click)="getThemeId(theme.thmId)">
+          <div class="theme-picker-swatch">
+            <mat-icon class="theme-chosen-icon" *ngIf="currentTheme === theme">check_circle</mat-icon>
+            <div class="theme-picker-primary" [style.background]="theme.thmPrimary"></div>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-menu>
+</mat-toolbar>
+<!-- <mat-toolbar color="primary">
+
+  <span class="example-spacer"></span>
+
+  <div fxShow="true" fxHide.lt-md="true" fxHide.gt-xs="true" fxHide.gt-xs="true">
+    <a href="#" mat-button>Menu Item 1</a>
+    <a href="#" mat-button>Menu Item 2</a>
+    <a href="#" mat-button>Menu Item 3</a>
+    <a href="#" mat-button>Menu Item 4</a>
+    <a href="#" mat-button>Menu Item 5</a>
+    <a href="#" mat-button>Menu Item 6</a>
+  </div>
+
+
+</mat-toolbar> -->

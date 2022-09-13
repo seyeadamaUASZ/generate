@@ -1,0 +1,104 @@
+<mat-dialog-content>
+  <div class="container-fluid">
+    <form class="" [formGroup]="EditForm" (ngSubmit)="onSubmit()">
+  
+      <mat-horizontal-stepper [linear]="true">
+      
+         <mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.infosclient' | translate}}</div>
+	<mat-form-field appearance="fill">
+      <mat-label>{{'ouverturecompte.nom' | translate}}</mat-label>
+      <input matInput type="text" formControlName="nom" required>
+</mat-form-field>
+<mat-form-field appearance="fill">
+      <mat-label>{{'ouverturecompte.prenom' | translate}}</mat-label>
+      <input matInput type="text" formControlName="prenom" required>
+</mat-form-field>
+<mat-form-field appearance="fill">
+      <mat-label>{{'ouverturecompte.adresse' | translate}}</mat-label>
+      <input matInput type="text" formControlName="adresse" required>
+</mat-form-field>
+<mat-form-field appearance="fill">
+      <mat-label>{{'ouverturecompte.datenaissance' | translate}}</mat-label>
+      <input matInput [matDatepicker]="datenaissance" formControlName="datenaissance" required>
+      <mat-datepicker-toggle matSuffix [for]="datenaissance"></mat-datepicker-toggle>
+      <mat-datepicker #datenaissance></mat-datepicker>
+</mat-form-field>
+<mat-form-field appearance="fill">
+      <mat-label>{{'ouverturecompte.telephone' | translate}}</mat-label>
+      <input matInput type="text" formControlName="telephone" required>
+</mat-form-field>
+
+ <div>
+              <button type="button" mat-flat-button color="warn" (click)="closeDialog()" >{{'btn.fermer' | translate}}</button>
+              <button type="button" mat-stroked-button color="primary" matStepperNext>{{'btn.suivant' | translate}}</button>
+            </div>
+</mat-step>
+<mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.document' | translate}}</div>
+	<input type="file" #filecni hidden (change)="onFileAddedcni()">
+<div class="row container-fluid mt-1 mb-2" (click)="addFilecni()">
+                <div class="file-upload">
+<span class="file-name">
+                    {{'ouverturecompte.cni' | translate}}
+</span>
+                  <span *ngIf="cni" class="sep"></span>
+
+                  <span class="file-name2">
+{{cni?.name}}
+                  </span>
+
+<span class="flex">
+                  </span>
+                  <span *ngIf="cni"><mat-icon color="primary" >check</mat-icon></span>
+                </div>
+</div>
+<input type="file" #filecertificationresidence hidden (change)="onFileAddedcertificationresidence()">
+<div class="row container-fluid mt-1 mb-2" (click)="addFilecertificationresidence()">
+                <div class="file-upload">
+<span class="file-name">
+                    {{'ouverturecompte.certificationresidence' | translate}}
+</span>
+                  <span *ngIf="certificationresidence" class="sep"></span>
+
+                  <span class="file-name2">
+{{certificationresidence?.name}}
+                  </span>
+
+<span class="flex">
+                  </span>
+                  <span *ngIf="certificationresidence"><mat-icon color="primary" >check</mat-icon></span>
+                </div>
+</div>
+
+ <div>
+              <button type="button" mat-stroked-button color="primary" matStepperPrevious>{{'btn.previous' | translate}}</button>
+              <button type="button" mat-stroked-button color="primary" matStepperNext>{{'btn.suivant' | translate}}</button>
+            </div></mat-step>
+<mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.infoscompte' | translate}}</div>
+	<mat-form-field appearance="fill">
+    <mat-label>{{'ouverturecompte.typecompte' | translate}}</mat-label>
+    <mat-select formControlName="typecompte" required>
+         <mat-option value="epargne">{{'ouverturecompte.epargne'|translate}}</mat-option>
+<mat-option value="courant">{{'ouverturecompte.courant'|translate}}</mat-option>
+    </mat-select>
+ </mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>{{'ouverturecompte.typeservice' | translate}}</mat-label>
+    <mat-select formControlName="typeservice" required multiple>
+         <mat-option value="carte">{{'ouverturecompte.carte'|translate}}</mat-option>
+<mat-option value="cheque">{{'ouverturecompte.cheque'|translate}}</mat-option>
+    </mat-select>
+ </mat-form-field>
+
+ <div>
+              <button type="button" mat-stroked-button color="primary" matStepperPrevious>{{'btn.previous' | translate}}</button>
+              <button type="submit" mat-flat-button color="primary" >{{'btn.valider' | translate}}</button>
+            </div></mat-step>
+
+          
+      </mat-horizontal-stepper>
+      </form>
+  </div>
+</mat-dialog-content>

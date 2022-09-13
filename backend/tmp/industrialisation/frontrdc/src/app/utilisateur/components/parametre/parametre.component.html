@@ -1,0 +1,95 @@
+<mat-card>
+  <mat-card-header class="card-header">
+    <span class="header center ">{{'parametre' | translate}}</span>
+  </mat-card-header>
+
+  <form [formGroup]="ParametreForm" (ngSubmit)="updateParametre()">
+    <!--
+<<<<<<< HEAD
+  <div class="row">
+    <div class="col-sm-4 col-lg-4 col-md-4"><br>
+      <span>{{'theme' | translate}}</span><br>
+    </div>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+      <mat-form-field>
+        <mat-label>{{'themechoose' | translate}}</mat-label>
+        <mat-select formControlName="param_thm_id">
+          <mat-option *ngFor="let theme of Themes" [value]="theme" >{{theme.thmName}}              <div class="theme-picker-primary" [style.background]="theme.primary"></div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+=======
+-->
+    <div class="row">
+      <div class="col-sm-4 col-lg-4 col-md-4"><br>
+        <span>{{'theme' | translate}}</span><br>
+      </div>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <mat-form-field>
+          <mat-label>{{'theme' | translate}}</mat-label>
+          <mat-select formControlName="param_thm_id" [compareWith]="compareTheme">
+            <mat-option *ngFor="let theme of Themes" [value]="theme">{{theme.thmName}}
+              <mat-icon class="theme-chosen-icon float-right" [style.background]="theme.thmPrimary">computer</mat-icon>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-lg-4 col-md-4"><br>
+        <span>{{'langue' | translate}}</span><br>
+      </div>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <mat-form-field>
+          <mat-label>{{'langue' | translate}}</mat-label>
+          <mat-select formControlName="param_lng_id">
+            <mat-option *ngFor="let langue of Langues" [value]="langue">{{langue.lngLangue}}</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <!-- <button class="float-right" mat-raised-button color="primary" type="submit">{{'Ok'| translate}}</button> -->
+      </div>
+      <!--
+<<<<<<< HEAD
+    -->
+    </div><br>
+    <div class="row">
+      <div class="col-sm-4 col-lg-4 col-md-4"><br>
+        <span>{{'param.logo' | translate}}</span>
+      </div>
+      <div class="col-md-6">
+        <label class="btn">
+          <img *ngIf=retreivedImage mat-card-sm-image [src]="retreivedImage">&nbsp;&nbsp;
+          <mat-icon *ngIf=!retreivedImage color="primary">image </mat-icon>{{'parametrage.selectlogo' | translate}}
+          <input type="file" style="display: none" formControlName="param_img_id" accept='image/*'
+            (change)="onFileChanged($event)">
+        </label>
+
+      </div>
+      <!--
+        <div *ngIf=retreivedImage>
+                   <img mat-card-sm-image [src]="retreivedImage">
+                  </div>
+           -->
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <!-- <button class="float-right" mat-raised-button color="primary" type="submit">{{'Ok'| translate}}</button> -->
+      </div>
+
+    </div><br>
+    &nbsp;&nbsp;
+    <button class="" mat-raised-button color="secondary" type="button" routerLink="/home">{{'btn_fermer'| translate}}</button>&nbsp;&nbsp;
+    <button class="" mat-raised-button color="primary" type="submit">{{'btn_valider'| translate}}</button><br>
+    <mat-spinner class="center" *ngIf="loading" value="indeterminate"></mat-spinner>
+
+
+
+  </form>
+
+
+</mat-card>

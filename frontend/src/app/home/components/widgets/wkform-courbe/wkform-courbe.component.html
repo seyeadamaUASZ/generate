@@ -1,0 +1,11 @@
+          <div style="width: 100%;">
+              <canvas
+                  baseChart
+                  [chartType]="'line'"
+                  [datasets]="chartData1"
+                  [labels]="chartLabels1"
+                  [options]="chartOptions"
+                  [legend]="true"
+                  (chartClick)="onChartClick($event)">
+              </canvas>
+            </div>

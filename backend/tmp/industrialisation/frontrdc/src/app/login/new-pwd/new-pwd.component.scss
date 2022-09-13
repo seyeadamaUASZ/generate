@@ -1,0 +1,93 @@
+
+.image{
+    background: url("/src/assets/images/gainde/ia.jpg");
+  }
+
+  #test {
+    background-image: url();
+    background-size: cover;
+    /* background: url(http://www.petite-annonce-gratuite.com/layout_images/carte-france.png) no-repeat; */
+    width: 100%;
+    height: 390px;
+  }
+  .centrer{
+    text-align: center;
+    margin: auto;
+  }
+  mat-grid-tile {
+    background: rgb(238, 239, 240);
+  }
+
+
+
+  .right{
+    margin-left: 20%;
+  }
+  .top{
+    margin-top: 11%;
+  }
+  .text{
+    font-size: 11px;
+  }
+  mat-card{
+    border: 10px solid;
+    border-color: rgb(8, 8, 141);
+  }
+  .center{
+    margin-bottom: 2%;
+    display: block;
+    margin:auto;
+    text-align: center;
+  }
+
+  .Newpwd-page{
+    width: 100%;
+    background: white;
+  }
+
+  .Newpwd-spacer{
+    height: 20vh;
+  }
+
+  .Newpwd-container{
+    margin: auto;
+  width: 600px;
+  padding: 2vh;
+  border: 1px solid black;
+    //background-color: rgb(184, 195, 207);
+    /* background-color: rgb(184, 195, 207); */
+
+  }
+
+  .Newpwd-form{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  #lock-icon{
+    line-height: 56px;
+    color: #fff;
+  }
+  .card-heading{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.31);
+  }
+
+  .buttons .Newpwd{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+
+  .buttons .Newpwd > button{
+    width: 100%;
+  }
+
+  .buttons .register{
+    display: flex;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    justify-content: space-between;
+    margin: auto;
+  }

@@ -1,0 +1,85 @@
+<div class="row" style="margin-top: 15px; " >
+  <div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="info-box">
+    <span class="info-box-icon bg-aqua"><i class="fa fa-user-o"></i></span>
+    <div class="info-box-content">
+      <span class="info-box-number color">{{nbrUser}}</span><br>
+      <span class="info-box-text color1">{{'dashboard.utilisateur' | translate}}</span>
+    </div>
+  </div>
+</div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-laptop"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrConnect}}</span><br>
+        <span class="info-box-text color1">{{'dashboard.connectes' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12"*ngFor="let stat of stats">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-user-circle-o"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{stat[1]}}</span><br>
+        <span class="info-box-text color1">{{stat[0]}}(s)</span>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+<div class="row" style="margin-top: 15px;">
+  <!-- <div class="col-md-4 col-sm-3 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-cogs"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrAdmin}}<small></small></span><br>
+        <span class="info-box-text">{{'dashboard.administrateur' | translate}} </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-red"><i class="fa fa-cogs"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrIntegrateur}}</span><br>
+        <span class="info-box-text">{{'dashboard.integrateurs'| translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-user-o"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrCommerciaux}}<small></small></span><br>
+        <span class="info-box-text">{{'dashboard.commerciaux' | translate}}</span>
+      </div>
+    </div>
+  </div> -->
+
+</div>
+
+
+<!-- <mat-grid-list   [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+  <mat-grid-tile>
+    <p class="number">{{nbrAdmin}}</p><br>
+    <span class="type">{{'dashboard.administrateur' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrIntegrateur}}</p>
+    <span class="type">{{'dashboard.integrateurs'| translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrCommerciaux}}</p>
+    <span class="type">{{'dashboard.commerciaux' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrUser}}</p>
+    <span class="type">{{'dashboard.utilisateur' | translate}} </span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrConnect}}</p>
+    <span class="type">{{'dashboard.connectes' | translate}} </span>
+  </mat-grid-tile>
+</mat-grid-list> -->

@@ -1,0 +1,128 @@
+<span class="route">{{'dashboard.home' | translate }} >  {{'dashboard.fichier' | translate }}</span>
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mymargin" color="primary">file_copy</mat-icon>
+        {{'fichier.model' | translate}}
+      </ng-template>
+      <mat-card>
+        <mat-card-header class="card-header">
+          <span class="header">{{'fichier.model' | translate}}</span>
+        </mat-card-header>
+        <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddFichier()"
+          matTooltip="{{'fichier.addFichier' | translate}}">
+          <mat-icon>add</mat-icon>
+        </button><br>
+        <div class="row container-fluid">
+          <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let rapport of rapportNotGenere">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <!-- <div class="card-icon">
+                  <i class="material-icons">content_copy</i>
+                </div> -->
+                <h3 class="card-category text-white center">
+                  <button mat-mini-fab color="success" (click)="openDialogEditRapportFile(rapport)" class="btn-success pull-left">
+                    <mat-icon matTooltip="Edit fichier jrxml">
+                      source
+                    </mat-icon>
+                  </button>
+                  {{rapport.rptNom}}
+                  <button mat-mini-fab color="primary" (click)="openDialogEditFichier(rapport)" class="btn-primary pull-right">
+                    <mat-icon matTooltip="Edit fichier">
+                      edit
+                    </mat-icon>
+                  </button>
+                </h3>
+    
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <!-- <i class="material-icons text-danger">warning</i> -->
+                  <img src="assets\images\gainde\fichier.png" class="col-lg-12 col-md-12 col-sm-12"><br><br>
+    
+                <!-- <button mat-mini-fab color="primary" *ngIf="rapport.rptValider=='Modeliser'" (click)="openDialogModeliserRapport(rapport.rptId)"
+                  matTooltip="Modeliser">
+                  <mat-icon>edit</mat-icon>
+                </button> -->
+                <button mat-mini-fab color="primary"  class="pull-right" *ngIf="rapport.rptValider=='Modeliser'"  (click)="validerRapport(rapport)"
+                  matTooltip="Valider">
+                  <mat-icon>done_outline</mat-icon>
+                </button>&nbsp;
+    
+              <button mat-mini-fab color="success" (click)="openDialogEditRapport(rapport.rptId)">
+                <mat-icon matTooltip="Modification">
+                  edit
+              </mat-icon>
+            </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mymargin" color="primary">view_agenda</mat-icon>
+        {{'fichier.modelGenerer' | translate}}
+      </ng-template>
+      <mat-card>
+        <mat-card-header class="card-header">
+          <span class="header">{{'fichier.alert' | translate}}</span>
+        </mat-card-header>
+        <br>
+        <br>
+      <mat-spinner class="center" *ngIf="loading" value="indeterminate"></mat-spinner>
+      <div class="row container-fluid">
+        <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let rapportGenere of rapportGeneres">
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <!-- <div class="card-icon">
+                <i class="material-icons">content_copy</i>
+              </div> -->
+              <h3 class="card-category text-white center">{{rapportGenere.rptNom}} </h3>
+              <button mat-mini-fab color="accent" (click)="modeliserRapport(rapportGenere)"  *ngIf="rapportGenere.rptValider=='Valider'"
+                matTooltip="Reutilisation">
+                <mat-icon>swap_horiz</mat-icon>
+              </button>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <!-- <i class="material-icons text-danger">warning</i> -->
+                <img src="assets\images\gainde\fichier.png" class="col-lg-12 col-md-12 col-sm-12"><br><br>
+                <!-- <button mat-mini-fab color="primary" (click)="genererFormulaire(rapportGenere.rptId)"  *ngIf="rapportGenere.rptValider=='Valider'"
+                matTooltip="{{'formulaire.btnGenerer' | translate}}">
+                <mat-icon>settings</mat-icon>
+              </button>&nbsp;&nbsp; -->
+              <button mat-mini-fab color="warn" (click)="openDialogDeleteRapport(rapportGenere)" >
+                <mat-icon matTooltip="supprimer">
+                  delete
+              </mat-icon>
+            </button>&nbsp;&nbsp;
+                <button mat-mini-fab color="primary" class="pull-right" (click)="gotoExprotFile(rapportGenere.rptId)">
+                <mat-icon matTooltip="Details">
+                  visibility
+              </mat-icon>
+            </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mymargin" color="primary">tune</mat-icon>
+        {{'fichier.addPrivilege' | translate}}
+      </ng-template>
+      <app-view-list-rapport-gen></app-view-list-rapport-gen>
+    </mat-tab>
+    <!-- <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mymargin" color="primary">menu</mat-icon>
+        {{'fichier.addDelSousMenu' | translate}}
+      </ng-template>
+      <app-view-list-sous-menu></app-view-list-sous-menu>
+    </mat-tab> -->
+</mat-tab-group>

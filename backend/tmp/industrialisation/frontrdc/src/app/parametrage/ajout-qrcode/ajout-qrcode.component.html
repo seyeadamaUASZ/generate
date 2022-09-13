@@ -1,0 +1,35 @@
+<div >
+  <div class="card-header">
+
+  <h2>
+      {{'qrcodes.add' | translate}}
+  </h2>
+  </div><br>
+  <form class="" [formGroup]="QrcodeForm" (ngSubmit)="onSubmit()">
+      <div class="">
+          <div>
+              <mat-form-field>
+                  <mat-icon matSuffix>code</mat-icon>
+                  <input matInput placeholder="{{'qrcodes.nom' | translate}}" type="text" formControlName="qrcNom" required>
+              </mat-form-field>
+              <!-- <mat-form-field>
+                  <mat-icon matSuffix>code</mat-icon>
+                  <input matInput placeholder="{{'qrcodes.couleur' | translate}}" type="text" formControlName="qrcCouleur" required>
+              </mat-form-field> -->
+              <!-- <mat-form-field>
+                <mat-icon matSuffix>code</mat-icon>
+                <input matInput placeholder="{{'qrcodes.forme' | translate}}" type="text" formControlName="qrcForme" required>
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-icon matSuffix>code</mat-icon>
+                <input matInput placeholder="{{'qrcodes.contenu' | translate}}" type="text" formControlName="qrcContenu" required>
+            </mat-form-field>
+          </div>
+      </div>
+
+      <div class="mat-dialog-actions">
+              <button mat-raised-button color="primary" type="submit">{{'Action.save' | translate}}</button>
+              <button mat-raised-button color="warn" (click)="closeDialog()" type="button" >{{'Action.close' | translate}}</button>
+      </div>
+  </form>
+</div>

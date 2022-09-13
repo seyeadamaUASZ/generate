@@ -1,0 +1,31 @@
+
+<mat-grid-list   [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+    <!-- <mat-grid-tile>
+      <p class="number">{{nbrIntegrateur}}</p>
+      <span class="type">{{'dashboard.integrateurs'| translate}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p class="number">{{nbrCommerciaux}}</p>
+      <span class="type">{{'dashboard.commerciaux' | translate}}</span>
+    </mat-grid-tile> -->
+    <mat-grid-tile>
+      <p class="number">{{nbrAppli}}</p>
+      <span class="type">{{'dashboard.applicationscrees' | translate}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p class="number">{{nbrModule}}</p>
+      <span class="type">{{'dashboard.modules' | translate}} </span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p class="number">{{nbrFichier}}</p>
+      <span class="type">{{'dashboard.fichier' | translate}} </span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p class="number">{{nbrFormulaire}}</p>
+      <span class="type">{{'dashboard.formulaire' | translate}} </span>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p class="number">{{nbrWorkflow}}</p>
+      <span class="type">{{'dashboard.workflow' | translate}} </span>
+    </mat-grid-tile>
+  </mat-grid-list>

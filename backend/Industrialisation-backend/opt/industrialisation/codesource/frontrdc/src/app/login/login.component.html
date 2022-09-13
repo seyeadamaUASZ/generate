@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <img src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+    assets/images/demat-1000x667.jpg 3x" class="image">
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="login-page">
+      <div class="login-spacer"></div>
+      <h2>
+        {{appName}}
+      </h2><br><br><br>
+      <div class="login-container">
+        <h2 class="float-left">
+          {{'authentification.title' | translate}}
+        </h2><br><br><br>
+        <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-icon matSuffix color="primary">perm_identity</mat-icon>
+            <input matInput placeholder="{{'username' | translate}}" formControlName="username">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-icon matSuffix name="cone" color="primary" (click)="regarder()">{{lasse}}</mat-icon>
+            <input matInput type="{{type}}" placeholder="{{'password' | translate}}" formControlName="password">
+          </mat-form-field>
+          <button mat-button color="primary" class="float-left" type="button"
+            routerLink="forgetPwd">{{'pwd_oublie' | translate}}
+            ?</button><br><br><br>
+          <div class="buttons">
+            <div class="login">
+              <button mat-raised-button color="primary" type="submit" [class.spinner]="loading" [disabled]="loading"
+                [disabled]="!loginForm.valid">{{'btn_login' | translate}}</button>
+            </div>
+            <div class="register">
+
+              <!-- <button mat-raised-button color="primary" routerLink="/registre">Register</button> -->
+
+              <!-- <button  mat-stroked-button color="primary" type="button">{{'mode_connexion' | translate}}
+                </button> -->
+            </div>
+
+          </div>
+        </form>
+        <!--
+        <mat-spinner class="center"  *ngIf="loading" value="indeterminate"></mat-spinner>
+        -->
+      </div>
+    </div>
+  </div>
+</div>

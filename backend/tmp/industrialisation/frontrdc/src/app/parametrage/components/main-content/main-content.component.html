@@ -1,0 +1,171 @@
+<span class="route">Dashboard > {{'menu.parametrage' | translate}}</span>
+<mat-tab-group [selectedIndex]="tabIndex">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="mymargin" color="primary">lock</mat-icon>
+      {{'parametrage.gestionPwd' | translate}}
+    </ng-template>
+    <mat-card>
+      <mat-card-header class="card-header centrer">
+        <mat-card-title>{{'parametrage.gestionPwd' | translate}}</mat-card-title>
+      </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
+      <mat-card-content>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6 col-md-6">
+            <mat-label>{{'criterePwd.caractereMin' | translate}} : {{criterePwd?.pwdCarMin}}</mat-label><br>
+            <hr>
+            <mat-label>{{'criterePwd.nombreCaratereNumerique' | translate}} : {{criterePwd?.pwdDigMin}}</mat-label><br>
+            <hr>
+            <mat-label>{{'criterePwd.nombreCaratereMaj' | translate}} : {{criterePwd?.pwdMajMin}}</mat-label><br>
+            <hr>
+
+
+          </div>
+          <div class="col-sm-6 col-lg-6 col-md-6">
+            <mat-label>{{'criterePwd.nombreCaratereSpeciaux' | translate}} : {{criterePwd?.pwdSpcMin}}</mat-label><br>
+            <hr>
+            <mat-label>{{'criterePwd.dureeValidite' | translate}} : {{criterePwd?.pwdDure}} jours</mat-label><br>
+            <hr>
+
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="openDialogUpdate(criterePwd)">{{'update' | translate}}</button>
+
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon color="warn">home</mat-icon>&nbsp;
+      {{'utilisateur.home-design' | translate}}
+    </ng-template>
+    <app-home-design></app-home-design>
+  </mat-tab>
+  <mat-tab>
+    <mat-card>
+      <mat-card-header class="card-header centrer">
+        <mat-card-title class="centrer header">{{'secteur.liste' | translate}}</mat-card-title>
+      </mat-card-header>
+      <ng-template mat-tab-label>
+        <mat-icon color="warn">perm_identity</mat-icon>&nbsp;
+        {{'application.secteur' | translate}}
+      </ng-template>
+      <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddSecteur()"
+        matTooltip="{{'secteur.add' | translate}}">
+        <mat-icon>add</mat-icon>
+      </button><br>
+      <mat-form-field>
+        <mat-label>{{'utilisateur.filtre' | translate}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Position Column -->
+          <!-- <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.secId}} </td>
+          </ng-container> -->
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> {{'secteur.nom' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.secNom}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> {{'secteur.description' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.secDescription}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> {{'secteur.action' | translate}} </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon matTooltip="{{'secteur.edit'| translate}}" (click)="openDialogEditSecteur(element)">edit
+              </mat-icon>
+              <mat-icon color="warn" matTooltip="{{'secteur.delete'| translate}}"
+                (click)="openDialogDeleteSecteur(element)">delete</mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon color="warn">code</mat-icon>&nbsp;
+      {{'utilisateur.QRCodes' | translate}}
+    </ng-template>
+    <!--<app-home-design></app-home-design>-->
+
+    <mat-card>
+      <mat-card-header class="card-header centrer">
+        <mat-card-title class="centrer">{{'qrcodes.liste' | translate}}</mat-card-title>
+
+        
+      </mat-card-header>
+      <div class="">
+        <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAddQrcodes()"
+          matTooltip="{{'qrcodes.add' | translate}}">
+          <mat-icon>add</mat-icon>
+        </button><br>
+        <div class="row container-fluid diminuer">
+          <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let q of listeQrcode">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <!-- <div class="card-icon">
+                <i class="material-icons">content_copy</i>
+              </div> -->
+                <h3 class="card-category text-white center">{{q.qrcNom}} </h3>
+
+              </div>
+              <div class="">
+                <div class="stats">
+                  <br>
+
+                  <img src='data:image/jpg;base64,{{q.qrcQrcodeByte}}'
+                    class=" img_taille col-lg-12 col-md-12 col-sm-12"><br><br>
+                  <button class="float-left" class="taille" mat-mini-fab color="primary"
+                    (click)="openDialogEditQrcodes(q)">
+                    <mat-icon matTooltip="{{'qrcodes.edit' | translate}}">edit</mat-icon>
+                  </button>
+                <button mat-mini-fab color="primary" (click)="downloadImage(q.qrcId)" class="btn-primary pull-right">
+                    <mat-icon matTooltip="{{'qrcodes.btnTelecharger' | translate}}">
+                      cloud_download
+                    </mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon color="warn">notification_important</mat-icon>&nbsp;
+      {{'notification.gestion-notification' | translate}}
+    </ng-template>
+    <app-notification></app-notification>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon color="warn">widgets</mat-icon>&nbsp;
+      {{'widget-secteur.nom' | translate}}
+    </ng-template>
+    <app-widget-secteur-activite></app-widget-secteur-activite>
+  </mat-tab>
+</mat-tab-group><br>

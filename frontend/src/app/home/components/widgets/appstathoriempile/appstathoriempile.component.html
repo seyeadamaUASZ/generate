@@ -1,0 +1,56 @@
+<div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='administrateur' || profil.proLibelle=='Integrateur' || profil.proLibelle=='integrateur'"> 
+  <div class="card">
+  
+    <div class="card-header"  >{{'diagramme.utilisateurcrees' | translate}}</div>
+    <div class="card-body">
+        <div class="row"> 
+          <div style="margin-left: auto; margin-right: 0;">
+          <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+            <mat-icon>more_vert</mat-icon> 
+          </button>
+          <button mat-button [matMenuTriggerFor]="menu"></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="visualiserBox(parambox='uti')">Visualiser</button>
+            <button mat-menu-item (click)="ShowHideButton()">Par mois</button>
+            <button mat-menu-item  (click)="ShowHideButton()">Par années</button>
+            <button mat-menu-item  (click)="openPDF()">Télécharger pdf</button>
+            <button mat-menu-item (click)="openExcel()">Télécharger excel</button>
+            <button mat-menu-item (click)="downloadCanvas($event)">Télécharger image</button>
+            <button mat-menu-item (click)="PrintImage($event)">Imprimer graphique</button>
+          </mat-menu>
+        </div>
+          </div>
+        <div *ngIf="!showMainContent">
+          <!--<div [chart]="chart3"></div>-->
+          <div>
+            <div style="display: block" id="htmlDataBaton">
+              <canvas baseChart id="chh"
+                      [datasets]="barChartDataAnnee"
+                      [labels]="barChartLabelsAnnee"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegendAnnee"
+                      [colors]="barChartColors"
+                      [chartType]="barChartTypeAnnee">
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showMainContent">
+          <div>
+            <div style="display: block" id="htmlDataBaton">
+              <canvas baseChart 
+                      [datasets]="barChartDataMonth"
+                      [labels]="barChartLabelsMonth"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegendMonth"
+                      [colors]="barChartColors"
+                      [chartType]="barChartTypeMonth">
+              </canvas>
+            </div>
+          </div>
+          <!--<div [chart]="chart2"></div>-->
+        </div>
+      
+    </div> 
+  </div> 
+</div>

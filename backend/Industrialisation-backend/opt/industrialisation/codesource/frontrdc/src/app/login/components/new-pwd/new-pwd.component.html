@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <img src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+    assets/images/demat-1000x667.jpg 3x" class="image">
+  </div>
+<div class="col-lg-4 col-md-4 col-sm-4">
+<div class="login-page">
+  <div class="login-space"></div>
+  <h2 class="industrialisation">
+    {{appName}}
+  </h2><br><br><br>
+  <div class="login-container">
+    <p class="card-heading center">
+      <strong>{{'message_token'|translate}}</strong>
+    </p>
+  </div>
+  <div class="login-space"></div>
+
+  <div class="login-container">
+    <div class="Newpwd-page">
+      <div class="Newpwd-spacer"></div>
+      <div class="Newpwd-container">
+
+        <form class="Forgetpwd-form" [formGroup]="EnvoiTokenForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="{{'token' | translate}}" formControlName="token" required>
+          </mat-form-field><br><br>
+          <div class="buttons">
+            <div class="Forgetpwd center" style="padding: 5%;">
+              <button mat-stroked-button color="primary" routerLink="/login">{{'btn_fermer' | translate}} </button>&nbsp;&nbsp;
+              <button mat-raised-button color="primary">{{'btn_valider' | translate}}</button>
+            </div><br>
+          </div>
+
+        </form>
+        <!-- <div class="login-spacer"></div>
+        <button style="text-align: center;display: block;margin: auto;"
+          routerLink="/home">{{'Back'|translate}}</button> -->
+        <!-- <a style="text-align: center;display: block;margin: auto;" routerLink="/home">{{'btn_retour'|translate}}</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

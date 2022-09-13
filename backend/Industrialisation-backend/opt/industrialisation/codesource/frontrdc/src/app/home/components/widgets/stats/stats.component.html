@@ -1,0 +1,81 @@
+<div class="row" style="margin-top: 15px;">
+  <div class="col-md-4 col-sm-3 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua">
+        <mat-icon  svgIcon="apps_pi" style="zoom: 2;"></mat-icon>
+        <!-- <i class="fa fa-th-large"></i> -->
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrAppli}}<small></small></span><br>
+        <span class="info-box-text color1">{{'dashboard.applicationscrees' | translate}} </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-bars"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrModule}}</span><br>
+        <span class="info-box-text color1">{{'dashboard.modules' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua"><i class="fa fa-file-o"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrFichier}}<small></small></span><br>
+        <span class="info-box-text color1">{{'dashboard.fichier' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua">
+        <mat-icon  svgIcon="blocks_pi" style="zoom: 2;"></mat-icon>
+        <!-- <i class="fa fa-building-o"></i> -->
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrFormulaire}}</span><br>
+        <span class="info-box-text color1">{{'dashboard.formulaire' | translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix visible-sm-block"></div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua">
+        <mat-icon  svgIcon="workflows_pi" style="zoom: 2;"></mat-icon>
+        <!-- <i class="fa fa-exchange"></i> -->
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-number color">{{nbrWorkflow}}</span><br>
+        <span class="info-box-text color1">{{'dashboard.workflow' | translate}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <mat-grid-list [cols]="breakpoint" rowHeight="2:1" (window:resize)="onResize($event)">
+  <mat-grid-tile>
+    <p class="number">{{nbrAppli}}</p>
+    <span class="type">{{'dashboard.applicationscrees' | translate}}</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrModule}}</p>
+    <span class="type">{{'dashboard.modules' | translate}} </span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrFichier}}</p>
+    <span class="type">{{'dashboard.fichier' | translate}} </span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrFormulaire}}</p>
+    <span class="type">{{'dashboard.formulaire' | translate}} </span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p class="number">{{nbrWorkflow}}</p>
+    <span class="type">{{'dashboard.workflow' | translate}} </span>
+  </mat-grid-tile>
+</mat-grid-list> -->

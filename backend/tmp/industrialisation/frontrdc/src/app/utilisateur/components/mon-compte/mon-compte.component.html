@@ -1,0 +1,72 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <!-- <div mat-card-avatar name="{{compte.utiPrenom}} {{compte.utiNom}}" class="example-header-image"></div> -->
+    <ngx-avatar name="{{compte?.utiPrenom}} {{compte?.utiNom}}" class="aligner" (click)="openDialogUpdateLogo(compte)" size="100" *ngIf="!compte?.utiLogo"></ngx-avatar>
+    <ngx-avatar [src]="logo" class="aligner" (click)="openDialogUpdateLogo(compte)" size="100" *ngIf="compte?.utiLogo"></ngx-avatar>
+    <mat-card-title>{{compte?.utiPrenom}} {{compte?.utiNom}}</mat-card-title>
+    <mat-card-subtitle>{{compte?.uti_pro_id.proLibelle}}</mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col-sm-3 col-lg-3 col-md-3">
+        <mat-label class="foncer"><strong>{{'register.prenom' | translate}} :</strong> </mat-label><br>
+        <hr>
+        <mat-label class="foncer"><strong>{{'register.nom' | translate}} :</strong> </mat-label><br>
+        <hr>
+        <mat-label class="foncer"> <strong>{{'register.username' | translate}} :</strong></mat-label><br>
+        <hr>
+        <mat-label class="foncer"><strong>{{'register.email' | translate}} :</strong> </mat-label><br>
+        <hr>
+        
+      </div>
+      <div class="col-sm-3 col-lg-3 col-md-3">
+        <mat-label> {{compte?.utiPrenom}}</mat-label><br>
+        <hr>
+        <mat-label> {{compte?.utiNom}}</mat-label><br>
+        <hr>
+        <mat-label> {{compte?.utiUsername}}</mat-label><br>
+        <hr>
+        <mat-label> {{compte?.utiEmail}}</mat-label><br>
+        <hr>
+        
+      </div>
+      <div class="col-sm-3 col-lg-3 col-md-3">
+        <!-- <mat-label>{{'register.date_creation' | translate}} : {{datePipeString}}</mat-label><br>
+        <hr> -->
+        <mat-label class="foncer"><strong>{{'register.telephone' | translate}} :</strong></mat-label><br>
+        <hr>
+        <mat-label class="foncer"><strong>{{'register.profil' | translate}} :</strong></mat-label><br>
+        <hr>
+        <!--
+        <mat-label>{{'register.theme' | translate}} : {{compte.uti_thm_id.thmName}}</mat-label><br>
+        <hr>
+        <mat-label>{{'register.langue' | translate}} : {{compte.uti_lng_id.lngLangue}}</mat-label><br>
+        <hr>
+        -->
+
+      </div>
+      <div class="col-sm-3 col-lg-3 col-md-3">
+        <!-- <mat-label>{{'register.date_creation' | translate}} : {{datePipeString}}</mat-label><br>
+        <hr> -->
+        <mat-label> {{compte?.utiTelephone}}</mat-label><br>
+        <hr>
+        <mat-label>{{compte?.uti_pro_id.proLibelle}}</mat-label><br>
+        <hr>
+        <!--
+        <mat-label>{{'register.theme' | translate}} : {{compte.uti_thm_id.thmName}}</mat-label><br>
+        <hr>
+        <mat-label>{{'register.langue' | translate}} : {{compte.uti_lng_id.lngLangue}}</mat-label><br>
+        <hr>
+        -->
+
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" routerLink="/home">{{'btn_fermer' | translate}}</button>
+    <button mat-button color="warn" (click)="openDialogUpdate(compte)">{{'update' | translate}}</button>
+
+  </mat-card-actions>
+</mat-card>

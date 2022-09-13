@@ -1,0 +1,98 @@
+<div class="app-header">
+  <h1 class="app-heading center">{{'industrialisation' | translate}}</h1>
+</div>
+
+<div class="login-page ">
+  <div class="login-spacer"></div>
+  <div class="login-container ">
+    <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+      <i id="lock-icon" class="material-icons">lock</i>
+    </div>
+    <h2 class="card-heading">
+      {{'authentification.title' | translate}}
+    </h2>
+    <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-icon matSuffix color="primary">perm_identity</mat-icon>
+        <input matInput placeholder="{{'username' | translate}}" formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matSuffix name="cone" color="primary" (click)="regarder()">{{lasse}}</mat-icon>
+        <input matInput type="{{type}}" placeholder="{{'password' | translate}}" formControlName="password">
+      </mat-form-field>
+      <div class="buttons">
+        <div class="login">
+          <button mat-raised-button color="primary" type="submit"
+            [disabled]="!loginForm.valid">{{'btn_login' | translate}}</button>
+        </div>
+        <div class="register">
+          <!-- <button mat-raised-button color="primary" routerLink="/registre">Register</button> -->
+          <button type="button" mat-button color="primary" routerLink="forgetPwd">{{'pwd_oublie' | translate}}
+            ?</button>
+          <button class="" type="button" mat-button color="primary" routerLink="/f">{{'mode_connexion' | translate}}
+          </button>
+        </div>
+
+      </div>
+    </form>
+    <mat-spinner class="center" *ngIf="loading" value="indeterminate"></mat-spinner>
+  </div>
+</div>
+
+<!-- <mat-toolbar color="primary">
+<mat-toolbar-row>
+<span>My First App</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <button mat-button>About</button>
+    <button mat-button>Contact</button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voicemail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
+ </mat-toolbar-row>
+ </mat-toolbar>
+ <div class="login-form-flex">
+<mat-card>
+   <mat-card-header>
+     <mat-card-title>Connexion</mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+
+        <mat-form-field class="full-width-input">
+             <input matInput name="username" id="username" [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre identifiant' required>
+        </mat-form-field>
+
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+
+        <mat-form-field class="full-width-input">
+           <input matInput type="password"name="password" id="password" [(ngModel)]="model.password" #password="ngModel" placeholder='Saisissez votre mot de passe' required>
+         </mat-form-field>
+         <mat-card-actions>
+     <button mat-raised-button color="primary" [disabled]="!f.form.valid">Connexion</button>
+   </mat-card-actions>
+
+      </div>
+    </form>
+ <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+ </mat-card-content>
+
+ </mat-card>
+</div> -->

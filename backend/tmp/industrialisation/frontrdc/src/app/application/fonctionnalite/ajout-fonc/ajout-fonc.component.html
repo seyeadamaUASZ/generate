@@ -1,0 +1,30 @@
+<div >
+  <div class="card-header">
+          
+  <h2>
+      {{'fonctionnalite.add' | translate}} 
+  </h2>
+  </div><br><br>
+  <form class="" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="">
+          <div>
+              <mat-form-field>
+                  <mat-icon matSuffix>settings</mat-icon>
+                  <input matInput placeholder="{{'fonctionnalite.nom' | translate}}" type="text" formControlName="fonNom" required>
+              </mat-form-field>
+              <mat-form-field>
+                  <mat-icon matSuffix>settings</mat-icon>
+                  <input matInput placeholder="{{'fonctionnalite.description' | translate}}" type="text" formControlName="fonDescription" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-icon matSuffix>settings</mat-icon>
+                <input matInput placeholder="{{'fonctionnalite.code' | translate}}" type="text" formControlName="fonCode" >
+            </mat-form-field>
+          </div>         
+      </div>        
+      <div class="mat-dialog-actions">
+              <button mat-raised-button color="primary" type="submit">{{'Action.save' | translate}}</button>  
+              <button mat-raised-button color="warn" (click)="closeDialog()" type="button" >{{'Action.close' | translate}}</button>            
+      </div>
+  </form>
+</div>

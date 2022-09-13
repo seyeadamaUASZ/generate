@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <mat-card class="example-card">
+    <mat-card-header class="mat-card-header">
+      <h3 class="card-heading float-left">
+        <strong class="foncer">  {{nomQrcode}}
+        </strong>
+    </h3>
+    </mat-card-header>
+    <mat-card-content class="mat-card-content">
+      <div *ngFor="let field of fields">
+        <app-dynamic-form-field [field]="field" [form]="form"></app-dynamic-form-field>
+      </div>
+    </mat-card-content>
+    <div class="qrcode">
+    <ngx-qrcode class="qrcode" *ngIf="display" [value]="dataValue" qrc-element-type= "url">
+    </ngx-qrcode>
+    <mat-icon matTooltip="{{'qrcodes.btnTelecharger' | translate}}">
+      <a [href]="href" *ngIf="display" (click)=" downloadQrcode()"  download>
+          cloud_download
+      </a>
+  </mat-icon>
+  </div>
+    <mat-card-actions class="mat-card-actions">&nbsp;&nbsp;&nbsp;
+      <button mat-stroked-button color="warn" type="button"
+        (click)="gotoPreviousPage()">{{'Action.cancel' | translate}}</button>
+      <button mat-raised-button color="primary" (click)="genererQrcode()"
+        [disabled]="!form.valid">{{'qrcodes.generer' | translate}}</button>
+    </mat-card-actions><br>
+  </mat-card>
+
+</form>

@@ -1,0 +1,39 @@
+<div class="login-page">
+  <div class="">  
+    <br><br>
+    <h3 class="card-heading float-left">
+      <strong class="foncer"> {{'cap.creation' | translate}}
+      </strong>
+    </h3><br><br>
+    <!-- <h2 class="card-heading">
+      {{'module.register' | translate}} </h2> -->
+    <form class="" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>{{'otp.libelle' | translate}}</mat-label>
+        <mat-icon matSuffix></mat-icon>
+        <input matInput placeholder="{{'cap.libelle' | translate}}" type="text" formControlName="libelle" required>
+      </mat-form-field>
+
+      
+      <mat-form-field appearance="fill">
+        <mat-label>{{'cap.description' | translate}}</mat-label>
+        <!-- <mat-icon matSuffix>perm_identity</mat-icon> -->
+        <input matInput placeholder="{{'cap.description' | translate}}" type="text" formControlName="description">
+      </mat-form-field>
+
+      <!--<input matInput placeholder="{{'choix fonctionnalites:' | translate }}" >
+        <div class="" style="padding: 10px;" *ngFor="let f of fonctionnalite">
+              <h3 class="card-category text-black left"><input type="checkbox" class="" id="">{{f.fonNom}} </h3>
+        </div>-->
+      <div class="buttons">
+        <div class="login">
+          <button mat-stroked-button color="warn" (click)="closeDialog()" type="button"
+            routerLink="/gestioncapteur">{{'btn_fermer' | translate}}</button>
+          <button mat-raised-button color="primary" type="submit">{{'btn_valider' | translate}}</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

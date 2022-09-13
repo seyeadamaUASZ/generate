@@ -1,0 +1,95 @@
+  <mat-card-header>
+    <mat-card-title>{{'#module.detail' | translate}}</mat-card-title>
+  </mat-card-header>
+  <mat-dialog-content>
+    <mat-card-content>
+      <mat-horizontal-stepper>
+        
+        <mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.infosclient' | translate}}</div>
+	<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.nom' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.nom }}</p>
+        </div>
+ </div>
+<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.prenom' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.prenom }}</p>
+        </div>
+ </div>
+<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.adresse' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.adresse }}</p>
+        </div>
+ </div>
+<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.datenaissance' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.datenaissance | date:'dd/MM/yyyy'}}</p>
+        </div>
+ </div>
+<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.telephone' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.telephone }}</p>
+        </div>
+ </div>
+
+ <div>
+              <button type="button" mat-flat-button color="warn" (click)="closeDialog()" >{{'btn.fermer' | translate}}</button>
+              <button type="button" mat-stroked-button color="primary" matStepperNext>{{'btn.suivant' | translate}}</button>
+            </div>
+</mat-step>
+<mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.document' | translate}}</div>
+	<div class="row container-fluid mt-1 mb-2" (click)="viewFilecni()">
+         <div class="file-upload">
+<span class="file-name">
+         {{'ouverturecompte.cni' | translate}}
+</span>
+		</div>
+</div>
+<div class="row container-fluid mt-1 mb-2" (click)="viewFilecertificationresidence()">
+         <div class="file-upload">
+<span class="file-name">
+         {{'ouverturecompte.certificationresidence' | translate}}
+</span>
+		</div>
+</div>
+
+ <div>
+              <button type="button" mat-stroked-button color="primary" matStepperPrevious>{{'btn.previous' | translate}}</button>
+              <button type="button" mat-stroked-button color="primary" matStepperNext>{{'btn.suivant' | translate}}</button>
+            </div></mat-step>
+<mat-step>
+            <div class="mt-3 mb-3">{{'ouverturecompte.infoscompte' | translate}}</div>
+	<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.typecompte' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.typecompte }}</p>
+        </div>
+ </div>
+<div class="col-sm-6 container-fluid">
+       <div class="container-fluid fond"><br>
+          	<span>{{'ouverturecompte.typeservice' | translate}}</span><br>
+          	<p class="mymargin foncer">{{donnee?.typeservice }}</p>
+        </div>
+ </div>
+
+ <div>
+              <button type="button" mat-stroked-button color="primary" matStepperPrevious>{{'btn.previous' | translate}}</button>
+              <button type="button" mat-flat-button color="warn" (click)="closeDialog()" >{{'btn.fermer' | translate}}</button>
+            </div>
+</mat-step>
+
+       
+       
+      </mat-horizontal-stepper>
+  
+    </mat-card-content>
+  </mat-dialog-content>
+  
+ 

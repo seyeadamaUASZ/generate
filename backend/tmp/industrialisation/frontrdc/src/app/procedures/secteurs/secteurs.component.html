@@ -1,0 +1,27 @@
+ <div class="container-fluid">
+<div class="row"> 
+  <div class="col-md-6" *ngFor="let desc  of workflow">
+  <div class="card card-widget widget-user-2">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-warning"> 
+      <!-- /.widget-user-image -->
+      <h3 class="widget-user-username"><a [routerLink]="['/procedures/secteurs/'+secteurparam+'/execution',desc.wkfConteneur]" style="color: green;">{{desc.description}}</a></h3>
+      <h5 class="widget-user-desc"> </h5>
+    </div>
+    <div class="card-footer p-0">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+         <strong>   Nombre de processus actif </strong><span class="float-right badge bg-primary">0</span>
+        </li>
+        <li class="nav-item">
+          <strong>{{desc.wkfLabelwdgt}} total</strong><span class="float-right badge bg-primary">0</span>
+        </li>
+        <li class="nav-item">
+          <strong>{{desc.wkfLabelwdgt}} Completé</strong><span class="float-right badge bg-primary">0</span> 
+        </li>  
+      </ul>
+    </div>
+  </div>
+</div> 
+</div> 
+</div>

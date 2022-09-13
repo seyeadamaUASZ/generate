@@ -1,0 +1,44 @@
+
+<div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='administrateur' || profil.proLibelle=='Integrateur' || profil.proLibelle=='integrateur' || profil.proLibelle=='Commercial'"> 
+  <div class="card">
+   <div class="card-header"  >{{'diagramme.nombreuserparprofil' | translate}}</div>
+   <div class="card-body">
+      <div class="row">
+      <!--<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+        <mat-icon>more_vert</mat-icon> 
+      </button>
+       <button mat-button [matMenuTriggerFor]="menu"></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  (click)="openPDF()">Télécharger pdf</button>
+      </mat-menu> -->
+
+      <div style="margin-left: auto; margin-right: 0;">
+        <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+          <mat-icon>more_vert</mat-icon> 
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu"></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="visualiserBox(parambox='uti')">Visualiser</button>
+          <button mat-menu-item  (click)="openPDF()">Télécharger pdf</button>
+          <button mat-menu-item (click)="openExcel()">Télécharger excel</button>
+          <button mat-menu-item (click)="downloadCanvas($event)">Télécharger image</button>
+          <button mat-menu-item (click)="PrintImage($event)">Imprimer graphique</button>
+        </mat-menu>
+      </div>
+      
+      </div>
+    <!--<div [chart]="chart3"></div>-->
+    <canvas id="htmlDataCircle" baseChart 
+            [data]="pieChartData" 
+            [labels]="pieChartLabels" 
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend"
+            [colors]="pieChartColors" 
+            >
+          </canvas>
+   </div>
+  </div>
+
+</div>

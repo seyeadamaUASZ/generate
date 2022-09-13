@@ -1,0 +1,25 @@
+
+<div class="container-fluid">
+    <h3 class="card-heading float-left">
+        <strong class="foncer"> {{'changePwd' | translate}}
+        </strong>
+    </h3>
+  <form [formGroup]="changeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+          <mat-label>{{'ancienPwd'| translate}}</mat-label>
+          <input type="password" placeholder="{{'ancienPwd'| translate}}" matInput formControlName="oldPwd">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'newPwd'| translate}}</mat-label>
+          <input type="password" placeholder="{{'newPwd'| translate}}" matInput formControlName="newPwd">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'confirmPwd'| translate}}</mat-label>
+          <input type="password" placeholder="{{'confirmPwd'| translate}}" matInput formControlName="confirmPwd">
+      </mat-form-field>
+      <button mat-stroked-button color="warn" type="button" (click)="dialogClose()">{{'btn_fermer'|translate}}</button>
+
+      <button mat-raised-button color="primary" type="submit">{{'btn_valider'|translate}}</button>
+  </form>
+
+</div>

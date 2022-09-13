@@ -1,0 +1,32 @@
+<div class="app-header">
+  <h1 class="app-heading">{{'industrialisation' | translate}}</h1>
+</div>
+<div class="login-page">
+  <div class="login-spacer"></div>
+  <div class="login-container">
+    <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+      <i id="lock-icon" class="material-icons">lock</i>
+    </div>
+    <h2 class="card-heading">
+      {{'authentification.title' | translate}}
+    </h2>
+    <form class="login-form" [formGroup]="changeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input type="password" placeholder="{{'ancienPwd'| translate}}" matInput formControlName="oldPwd">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" placeholder="{{'newPwd'| translate}}" matInput formControlName="newPwd">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" placeholder="{{'confirmPwd'| translate}}" matInput formControlName="confirmPwd">
+      </mat-form-field>
+      <div class="buttons">
+        <div class="login">
+          <button mat-raised-button color="primary" type="submit">{{'btn_valider'|translate}}</button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>

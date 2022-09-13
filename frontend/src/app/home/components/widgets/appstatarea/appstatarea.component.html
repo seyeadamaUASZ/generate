@@ -1,0 +1,53 @@
+ <div class="col-md-12 col-lg-12" *ngIf="profil.proLibelle=='administrateur' || profil.proLibelle=='Integrateur' || profil.proLibelle=='integrateur'"> 
+  <div class="card">
+    
+    <div class="card-header"  >{{'diagramme.nombreutilisateuraucours' | translate}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div style="margin-left: auto; margin-right: 0;">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+          <mat-icon>more_vert</mat-icon> 
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu"></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="ShowHideButtonArea()">Par mois</button>
+          <button mat-menu-item  (click)="ShowHideButtonArea()">Par années</button>
+          <button mat-menu-item  (click)="openPDF()">Télécharger pdf</button>
+          <button mat-menu-item (click)="openExcel()">Télécharger excel</button>
+          <button mat-menu-item (click)="downloadCanvas($event)">Télécharger image</button>
+          <button mat-menu-item (click)="PrintImage($event)">Imprimer graphique</button>
+        </mat-menu>
+      </div>
+        </div>
+        <div *ngIf="showMainContentArea">
+          <div style="display: block;" id="htmlDataArea">
+            <canvas baseChart 
+              [datasets]="lineChartDataMonth" 
+              [labels]="lineChartLabelsMonth"
+              [options]="lineChartOptionsMonth"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegendMonth"
+              [chartType]="lineChartTypeMonth"
+              [plugins]="lineChartPluginsMonth">
+            </canvas>
+          </div>
+          <!--<div [chart]="chart4"></div>-->
+        </div>
+        <div *ngIf="!showMainContentArea"> 
+          <!--<div [chart]="chart55"></div>-->
+          <div style="display: block;" id="htmlData">
+            <canvas baseChart 
+              [datasets]="lineChartDataAnnee" 
+              [labels]="lineChartLabelsAnnee"
+              [options]="lineChartOptionsAnnee"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegendAnnee"
+              [chartType]="lineChartTypeAnnee"
+              [plugins]="lineChartPluginsAnnee">
+            </canvas>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+</div>

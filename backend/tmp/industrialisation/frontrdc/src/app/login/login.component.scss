@@ -1,0 +1,86 @@
+
+.image{
+  background: url("/assets/images/gainde/ia.jpg");
+}
+
+mat-spinner{
+  width: 10%;
+}
+.centrer{
+  text-align: center;
+  margin: auto;
+}
+mat-grid-tile {
+  background: rgb(238, 239, 240);
+}
+
+.right{
+  margin-left: 20%;
+}
+.top{
+  margin-top: 11%;
+}
+.text{
+  font-size: 11px;
+}
+// mat-card{
+//   border: 10px solid;
+//   border-color: rgb(8, 8, 141);
+// }
+.center{
+  margin-bottom: 2%;
+  display: block;
+  margin:auto;
+  text-align: center;
+}
+.text-size{
+  font: 2px;
+}
+.login-page{
+  background: white;
+}
+
+.login-spacer{
+  height: 20vh;
+}
+
+.login-container{
+  display: block;
+  margin: auto;
+  width: 400px;
+  padding: 2vh;
+  background: rgb(233, 217, 217);
+
+}
+
+.login-form{
+ display:list-item ;
+  flex-direction: column;
+}
+
+#lock-icon{
+  line-height: 56px;
+  color: #fff;
+}
+.card-heading{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.31);
+}
+
+.buttons .login{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  
+}
+
+.buttons .login > button{
+  width: 100%;
+}
+
+.buttons .register{
+  display: flex;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  justify-content:center;
+  margin: auto;
+}

@@ -1,0 +1,84 @@
+ <mat-card class="">
+            <mat-card-header class="card-header">
+                <span class="header">inscription</span>
+            </mat-card-header>
+           <mat-form-field appearance="outline">
+        <mat-label>{{'utilisateur.filtre' | translate}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+            <button mat-mini-fab color="primary" class="add-contact" (click)="openDialogAdd()"
+                matTooltip="{{'inscription.add' | translate}}">
+                <mat-icon>person_add</mat-icon>
+            </button>
+ <mat-menu #detail="matMenu">
+        <form [formGroup]="formchamps">
+          <div *ngFor="let cd of columnDefinitions">
+            &nbsp; <mat-checkbox [formControlName]="cd.def">{{cd.label}}&nbsp;
+            </mat-checkbox>
+          </div>
+
+        </form>
+      </mat-menu>            <div class="">
+<button class="float-right" mat-button [mat-menu-trigger-for]="detail" yPosition="above">
+      <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="secondary">
+       filter_alt
+      </mat-icon>
+    </button>                <table mat-table class=" mat-elevation-z8" [dataSource]="dataSource" matSort>
+<ng-container matColumnDef="profile">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'inscription.profile' | translate}}</th>
+         <td mat-cell *matCellDef="let element"> <mat-icon  color="primary">file_copy
+    </mat-icon> </td>
+         </ng-container>
+<ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'inscription.prenom' | translate}} </th>
+         <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+         </ng-container>
+<ng-container matColumnDef="datenaiss">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'inscription.datenaiss' | translate}} </th>
+         <td mat-cell *matCellDef="let element"> {{element.datenaiss}} </td>
+         </ng-container>
+<ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'inscription.nom' | translate}} </th>
+         <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+         </ng-container>
+ <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef><span style="margin-left: 0%;">
+                        {{'register.action' | translate}}</span> </th>
+                <td mat-cell *matCellDef="let element" class="fab">
+                    <button mat-button [mat-menu-trigger-for]="detail"   yPosition="above">
+                        <mat-icon matTooltip="{{'utilisateur.details'| translate}}" color="secondary"
+                          >
+                            more_vert
+                        </mat-icon>
+                    </button>
+                    <mat-menu #detail="matMenu">
+                        <button mat-menu-item (click)="openDialogView(element)">
+
+                            <mat-icon matTooltip="{{'Action.details' | translate}}" color="primary">visibility
+                            </mat-icon>{{'Action.details' | translate}}
+                        </button>
+                        <button mat-menu-item (click)="openDialogUpdate(element)">
+
+                            <mat-icon matTooltip="{{'Action.edit' | translate}}" color="secondary">edit</mat-icon>
+                            {{'Action.edit' | translate}}
+                        </button>
+                        <button mat-menu-item (click)="openDialogDeleteUser(element)">
+
+                            <mat-icon color="warn" matTooltip="{{'Action.delete' | translate}}">delete</mat-icon>
+                            {{'Action.delete' | translate}}
+                        </button>
+<button mat-menu-item (click)="downloadImage(element)">
+
+                          <mat-icon color="warn" matTooltip="{{'Action.dawnload' | translate}}">dawnload</mat-icon>
+                          {{'Action.dawnload' | translate}}
+                      </button>
+                    </mat-menu>
+
+                </td>
+            </ng-container>
+           <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+           <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</mat-card>

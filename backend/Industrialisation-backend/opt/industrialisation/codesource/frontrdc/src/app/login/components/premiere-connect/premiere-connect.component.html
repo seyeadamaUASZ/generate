@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <img src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+    assets/images/demat-1000x667.jpg 3x" class="image">
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+<div class="login-page">
+  <div class="login-spacer"></div>
+  <h2 class="industrialisation">
+    INDUSTRIALISATION
+  </h2><br><br><br>
+  <div class="login-container">
+    <!-- <div id="login-fab" class="mdl-color--accent mdl-color-text--white">
+      <i id="lock-icon" class="material-icons">lock</i>
+    </div> -->
+    <h2 class="float-left">
+      {{'changementPwd' | translate}}
+    </h2><br><br><br>
+    <!-- <h2 class="card-heading">
+      {{'changementPwd' | translate}}
+    </h2> -->
+    <form class="login-form" [formGroup]="changeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <input type="password" placeholder="{{'ancienPwd'| translate}}" type="password" matInput formControlName="oldPwd">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input type="password" placeholder="{{'newPwd'| translate}}" type="password" matInput formControlName="newPwd">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input type="password" placeholder="{{'confirmPwd'| translate}}" type="password" matInput formControlName="confirmPwd">
+      </mat-form-field>
+      <div class="buttons">
+        <div class="login">
+          <button mat-raised-button color="primary" type="submit">{{'btn_valider'|translate}}</button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+</div>
+</div>

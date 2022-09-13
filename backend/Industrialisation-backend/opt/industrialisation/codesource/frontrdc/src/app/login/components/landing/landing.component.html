@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Site made with Mobirise Website Builder v5.2.0, https://mobirise.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v5.2.0, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.theme.css">
+  <link rel="stylesheet" href="assets/datepicker/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css"> -->
+
+
+
+
+</head>
+
+<body>
+
+    <section class="menu menu1 cid-sfzOo3qTou" once="menu" id="menu1-0">
+
+
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-brand">
+                    <img  class="diminuer center" mat-card-sm-image src="{{appLogo}}">   
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-info display-4"
+                            href="index.html#top">{{appName}}</a></span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                        <li class="nav-item"><a class="nav-link link text-black display-4"
+                                href="index.html#top">{{'landing.accueil' | translate}}</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="index.html#header16-3">
+                                {{'landing.apropos' | translate}}</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
+                                href="index.html#gallery2-5">
+                                {{'landing.domaines' | translate}}</a></li>
+                        <li class="nav-item" *ngIf="appsPubliees?.length>0"><a class="nav-link link text-black text-primary display-4"
+                                href="index.html#features3-c">
+                                {{'landing.applicationGenerees' | translate}}</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4"
+                                href="index.html#form5-9">{{'landing.contact' | translate}}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4"
+                                (click)="goToLogin()">{{'landing.btnConnexion' | translate}}</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4"
+                                (click)="openDialogInscription()">{{'landing.btnInscription' | translate}}</a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="slider1 cid-sfzOqm1iQ2 mbr-fullscreen" id="slider1-1">
+
+        <div class="carousel slide" id="sfQrpvgHc3" data-ride="carousel" data-interval="7000">
+            <ol class="carousel-indicators">
+                <li data-slide-to="0" class="active" data-target="#sfQrpvgHc3"></li>
+                <li data-slide-to="1" data-target="#sfQrpvgHc3"></li>
+
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item slider-image item active">
+                    <div class="item-wrapper">
+                        <img class="d-block w-100" src="assets/images/demat-1000x667.jpg" data-slide-to="2">
+
+                        <div class="carousel-caption">
+                            <h5 class="mbr-section-subtitle mbr-fonts-style display-5">
+                                <p>
+                                    <strong>{{'landing.dematrialisationTitle' | translate}}</strong>
+                                </p>
+                                <!-- La plateforme de dématérialisation -->
+                            </h5>
+                            <p class="mbr-section-text mbr-fonts-style display-7">
+                                {{'landing.dematrialisationDescription' | translate}}</p>
+                            <!-- Nous accompagnons les succès de nos
+                                clients à travers le digital -->
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item slider-image item">
+                    <div class="item-wrapper">
+                        <img class="d-block w-100" src="assets/images/istock-613672992-1000x667.jpg" data-slide-to="0">
+
+                        <div class="carousel-caption">
+                            <h5 class="mbr-section-subtitle mbr-fonts-style display-5">
+                                <strong>{{'landing.orbusPaiement' | translate}}</strong>
+                            </h5>
+                            <!-- Orbus paiement -->
+                            <p class="mbr-section-text mbr-fonts-style display-7">{{'landing.orbusPaiementDescription' |
+                                translate}}</p>
+                            <!-- C'est votre solution paiement
+                                électronique qui défère des différents moyens de paiement. -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <a class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#sfQrpvgHc3">
+                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control carousel-control-next" role="button" data-slide="next" href="#sfQrpvgHc3">
+                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="header16 cid-sfzZBWID4P mbr-fullscreen" id="header16-3">
+
+
+
+
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9">
+                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-7">
+                        {{'landing.apropos' | translate}}</h1>
+                    <p class="mbr-text mbr-fonts-style display-5"><strong>
+                            {{'landing.savoirplus' | translate}}</strong></p>
+                    <!-- Savoir plus sur Gainde 2000 -->
+
+                    <div class="video-wrapper mt-4"><iframe class="mbr-embedded-video"
+                            src="https://www.youtube.com/embed/2qn1oT76b-I?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0"
+                            width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="header19 cid-sfA0Ke97P6" id="header19-4">
+
+
+
+
+
+        <div class="container-fluid">
+            <div class="media-container">
+                <div class="col-md-12 align-center">
+                    <h1 class="mbr-section-title mbr-white mbr-bold mbr-fonts-style mb-3 display-5">{{'landing.chiffres'
+                        | translate}}</h1>
+                    <!-- Chiffres -->
+                    <p class="mbr-text mbr-white mbr-fonts-style display-5">{{'landing.chiffresDescription' |
+                        translate}}</p>
+                    <!-- Nous concernant depuis le début du
+                        commencement -->
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <span class="mbr-iconfont mobi-mbri-numbered-list mobi-mbri"></span>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                        <strong>{{'landing.guichetUnique' | translate}}</strong></h4>
+                                    <!-- 5ème
+                                            guichet unique à l'international -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <span class="mbr-iconfont mobi-mbri-code mobi-mbri"></span>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                        <strong>{{'landing.entrepriseSubsaharienne' | translate}}</strong></h4>
+                                    <!-- 1ère
+                                            entreprise&nbsp; subsaharienne certifiée ISO 27001 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                    <span class="mbr-iconfont mobi-mbri-globe-2 mobi-mbri"></span>
+                                    <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                        <strong>{{'landing.acprivee' | translate}}</strong></h4>
+                                    <!-- 1ère
+                                            AC privée en Afrique de l'Ouest -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery2 cid-sfA8nO2RVH" id="gallery2-5">
+
+
+        <div class="container-fluid">
+            <div class="mbr-section-head">
+                <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Gallery with Text and
+                        Buttons</strong></h4>
+                <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
+                    <strong>{{'landing.domaineIntervention' | translate}}</strong></h5>
+                <!-- Domaine d'intervention -->
+            </div>
+            <div class="row mt-4">
+                <div class="item features-image сol-12 col-md-6 col-lg-6">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/demat-1000x667.jpg" alt="image">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5">{{'landing.constructeurOperateur' |
+                                translate}}</h5>
+                            <!-- Constructeur et opérateur des guichets
+                                uniques. -->
+
+                        </div>
+                        <!-- <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-info display-7"
+                                target="_blank">Découvrir</a></div> -->
+                    </div>
+                </div>
+                <div class="item features-image сol-12 col-md-6 col-lg-6">
+                    <div class="item-wrapper">
+                        <div class="item-img glisser">
+                            <img src="assets/images/istock-613672992-1000x667.jpg" alt="image">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5">
+                                {{'landing.fournisseurSolutionsElectronique' | translate}}</h5>
+                            <!-- Fournisseur de solutions de paiement
+                                électronique. -->
+
+                        </div>
+                        <!-- <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-info display-7"
+                                target="_blank">Découvrir</a></div> -->
+                    </div>
+                </div>
+                <div class="item features-image сol-12 col-md-6 col-lg-6">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/securite-1000x667.jpg" alt="image">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5">{{'landing.realisateurPlateformes' |
+                                translate}}</h5>
+                            <!-- Réalisateur de plateformes de
+                                dématérialisation. -->
+
+                        </div>
+                        <!-- <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-info display-7"
+                                target="_blank">Découvrir</a></div> -->
+                    </div>
+                </div>
+                <div class="item features-image сol-12 col-md-6 col-lg-6">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/pe3-640x427.jpg" alt="image" title="">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5">{{'landing.fournisseurSolutionSecurite' |
+                                translate}}</h5>
+                            <!-- Fournisseur de solution de sécurité
+                                digitale. -->
+
+                        </div>
+                        <!-- <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-info display-7"
+                                target="_blank">Découvrir</a></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content2 cid-sfzOs98rPx" id="content2-2">
+
+
+        <div class="container-fluid">
+            <div class="mbr-section-head">
+                <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-7">{{'landing.actualite' |
+                    translate}}</h4>
+                <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
+                    <strong>{{'landing.derniersArticles' | translate}}</strong></h5>
+                <!-- Nos derniers
+                        articles -->
+            </div>
+            <div class="row mt-4">
+                <div class="item features-image сol-12 col-md-6 col-lg-4">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/1.jpg" alt="image" title="">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5"><a
+                                    href="https://www.gainde2000.com/african-digital-health-passport-the-challenge-of-personal-data-protection/?lang=en"
+                                    class="text-info">
+                                    {{'landing.article1Title' | translate}}</a></h5>
+                            <!-- Passport de santé numérique en Afrique -->
+                            <p class="mbr-text mbr-fonts-style mt-3 display-4">{{'landing.article1Description' |
+                                translate}}</p>
+                            <!-- En vue de reprendre les activités de
+                                transport aérien et de tourisme post-Covid,
+                                l'African Performance Institute (API) s’est penchés, lors d’un webinair, sur la question
+                                de la protection des données à caractère personnel
+                                dans le cadre de l’institution éventuelle d’un passeport numérique de santé...
+                             -->
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item features-image сol-12 col-md-6 col-lg-4">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/macky-sall-600x400.jpg" alt="image" title="">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5"><a
+                                    href="https://www.gainde2000.com/the-head-of-state-calls-to-accelerate-the-digital-planning-of-the-national-territory/?lang=en"
+                                    class="text-info">{{'landing.article2Title' | translate}}</a></h5>
+                            <!-- Accélération de l'aménagement numérique -->
+                            <p class="mbr-text mbr-fonts-style mt-3 display-4">
+                                {{'landing.article2Description' | translate}}
+                                <!-- Sur l’impératif d’intensifier la mise en œuvre de la stratégie « Sénégal Numérique 2025 », le Chef de l’Etat, Macky Sall, lors de la réunion du Conseil des ministres du 29 juillet 2020, rappelait au Gouvernement, l’urgence de bâtir un Sénégal Emergent ... -->
+                                <br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item features-image сol-12 col-md-6 col-lg-4">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <img src="assets/images/2.jpg" alt="image`" title="">
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-5"><a
+                                    href="https://www.gainde2000.com/teleworking-a-way-of-salvation-for-the-businesses-face-to-covid-19/?lang=en"
+                                    class="text-info">{{'landing.article3Title' | translate}}</a></h5>
+                            <!-- Le télétravail, nouvelle solution de business -->
+                            <p class="mbr-text mbr-fonts-style mt-3 display-4">{{'landing.article3Description' |
+                                translate}}</p>
+                            <!-- La propagation de la maladie Covid-19 a
+                                finalement poussé plusieurs chefs
+                                d'entreprise à fermer leur entreprise ou à développer de nouvelles capacités
+                                d'adaptation ... -->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="features3 cid-sg7gb6Pzmf" id="features3-c">
+
+
+        <div class="container-fluid" *ngIf="appsPubliees?.length>0">
+            <div class="mbr-section-head">
+                <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                    <strong>{{'landing.applicationGenerees' | translate}}</strong>
+                </h4>
+                <!-- Applications générées -->
+
+            </div>
+            <div class="row mt-4" >
+                <div *ngFor="let app of appsPubliees" class="item features-image сol-12 col-md-6 col-lg-4 centrer">
+                    <div class="item-wrapper">
+                        <div  class="item-img">
+                            <a *ngIf="!app?.appImg" [href]="app.appUrl" target="_blank">
+                                <img [src]="'../../../assets/images/image_fond.jpeg'" alt="{{app.appNom}}"></a>
+                            <a *ngIf="app?.appImg" [href]="app.appUrl" target="_blank">
+                                <img [src]="'data:image/png;base64,'+app.appImg" alt="{{app.appNom}}"></a>
+                            
+                                
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-7"><strong>
+                                {{app.appNom}}
+
+                                </strong></h5>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="item features-image сol-12 col-md-6 col-lg-4">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <a href="https://industrialisationsrv.gainde2000.sn:8443/etatcivil" target="_blank">
+                                <img src="assets/images/capture-decran-2020-11-12-a-09.13.02-874x479.png"
+                                    alt="image"></a>
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-7"><strong>
+
+                                </strong></h5>
+
+
+                        </div>
+
+                    </div>
+                </div> -->
+                <!-- <div class="item features-image сol-12 col-md-6 col-lg-4">
+                    <div class="item-wrapper">
+                        <div class="item-img">
+                            <a href="https://industrialisationsrv.gainde2000.sn:8443/medical" target="_blank"> 
+
+                                <img src="assets/images/capture-decran-2020-11-12-a-09.14.42-874x478.png"
+                                    alt="image"></a>
+                        </div>
+                        <div class="item-content">
+                            <h5 class="item-title mbr-fonts-style display-7"><strong>
+
+                                </strong></h5>
+
+
+                        </div>
+
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="form5 cid-sfQ4vDyAvf" id="form5-9">
+
+
+        <div class="container">
+            <div class="mbr-section-head">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-7">
+                    {{'landing.contact' | translate}}</h3>
+                <h4 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
+                    <strong>{{'landing.contactDescription' | translate}}</strong></h4>
+                <!-- On est là pour
+                        vous! -->
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                    <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler"
+                        data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true"
+                            value="M7wtUs32K6iuhaIVP+rqvPdzdPcKK/VcxTQ/y6kz/ZdseQPUa8fug2yK2wIhz7eSWJUPDm7IbACp1u2o4gApgTRzFMhV1ly8KiRJduaOd+aXrccjQznqW4iZC9M1OcAu">
+
+                        <div class="">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">
+                                {{'landing.contactMerci' | translate}}</div>
+                            <!-- Merci de nous
+                                avoir laissé votre message. Nous vous reviendrons sous peu. -->
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...!
+                                some
+                                problem!</div>
+                        </div>
+                        <div class="dragArea row">
+                            <div class="col-md col-sm-12 form-group" data-for="name">
+                                <input type="text" name="name" placeholder="{{'landing.nom' | translate}}"
+                                    data-form-field="name" class="form-control" value="" id="name-form5-9" required>
+                            </div>
+                            <div class="col-md col-sm-12 form-group" data-for="email">
+                                <input type="email" name="email" placeholder="{{'landing.email' | translate}}"
+                                    data-form-field="email" class="form-control" value="" id="email-form5-9" required>
+                            </div>
+
+                            <div class="col-12 form-group" data-for="textarea">
+                                <textarea name="textarea" placeholder="{{'landing.message' | translate}}"
+                                    data-form-field="textarea" class="form-control" id="textarea-form5-9"
+                                    required></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button
+                                    type="submit" class="btn btn-info display-4">{{'landing.btnEnvoyerMessage' |
+                                    translate}}</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts4 cid-sfQ6YULKDx" id="contacts4-a">
+
+
+
+
+
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="text-content col-12 col-md-6">
+                    <h2 class="mbr-section-title mbr-fonts-style display-5">
+                        <strong>{{'landing.nousSuivre' | translate}}</strong>
+                    </h2>
+                    <p class="mbr-text mbr-fonts-style display-7">{{'landing.nousSuivreDescription' | translate}}</p>
+                    <!-- Partout sur les réseaux sociaux et ne manquez aucune
+                        nouveauté. -->
+                </div>
+                <div class="icons d-flex align-items-center col-12 col-md-6 justify-content-end mt-md-0 mt-2 flex-wrap">
+                    <a href="https://twitter.com/gainde2000?lang=en" target="_blank">
+                        <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                    </a>
+                    <a href="https://www.facebook.com/Gainde2000Officiel/" target="_blank">
+                        <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/gainde-2000/" target="_blank">
+                        <span class="mbr-iconfont mbr-iconfont-social socicon-linkedin socicon"></span>
+                    </a>
+                    <!-- <a href="https://instagram.com/mobirise" target="_blank">
+                    <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                </a> -->
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="footer7 cid-sfQ4tT4zm6" once="footers" id="footer7-8">
+
+
+
+
+
+        <div class="container">
+            <div class="media-container-row align-center mbr-white">
+                <div class="col-12">
+                    <p class="mbr-text mb-0 mbr-fonts-style display-7">
+                        <!-- Designed &amp; Developped by Gainde 2000 -->
+                        {{'landing.copyright' | translate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Page was <a href="https://mobirise.site/h" style="color:#aaa;">made with</a> Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/playervimeo/vimeo_player.js"></script>  <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>  <script src="assets/formstyler/jquery.formstyler.js"></script>  <script src="assets/formstyler/jquery.formstyler.min.js"></script>  <script src="assets/datepicker/jquery.datetimepicker.full.js"></script>  <script src="assets/sociallikes/social-likes.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>   -->
+
+
+</body>
+
+</html>

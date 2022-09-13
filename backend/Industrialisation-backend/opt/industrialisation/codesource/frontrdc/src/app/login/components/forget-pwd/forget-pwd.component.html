@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <img src="assets/images/demat-1000x667.jpg" srcset="assets/images/demat-1000x667.jpg 2x,
+    assets/images/demat-1000x667.jpg 3x" class="image">
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+<div class="Forgetpwd-page">
+  <div class="Forgetpwd-spacer"></div>
+  <h2 class="industrialisation">
+    {{appName}}
+  </h2><br><br><br>
+  <div class="Forgetpwd-container">
+    <h3 class="float-left">
+      {{'forgettenpwd'| translate}}
+    </h3><br><br><br>
+    <form class="Forgetpwd-form" [formGroup]="ForgetPwdForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="{{'mail' | translate}}" type="email" formControlName="pwrEmail" required>
+      </mat-form-field>
+      <div class="buttons">
+        <div class="Forgetpwd">
+          <button mat-raised-button color="primary" [disabled]="!ForgetPwdForm.valid">{{'btn_valider' | translate}}</button>
+        </div>
+        <div class="buttons">
+          <button  mat-stroked-button color="primary" routerLink="/login">{{'btn_fermer' | translate}}
+          </button>&nbsp;
+          <button  mat-stroked-button color="primary"
+            routerLink="/login/newPwd">{{'btn_code_verification' | translate}}
+          </button>
+
+        </div>
+        <!-- <div class="center">
+          <button mat-button color="primary" routerLink="/login">{{'btn_fermer' | translate}}?</button>
+        </div> -->
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>

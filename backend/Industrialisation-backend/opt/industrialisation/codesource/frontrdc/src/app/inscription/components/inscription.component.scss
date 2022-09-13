@@ -1,0 +1,95 @@
+ 
+  mat-spinner{
+    width: 10%;
+  }
+  .centrer{
+    text-align: center;
+    margin: auto;
+  }
+  
+  .center{
+    margin-bottom: 2%;
+    display: block;
+    margin:auto;
+    text-align: center;
+  }
+  .text-size{
+    font: 2px;
+  }
+  .login-spacer{
+    height: 20vh;
+  }
+  @media only screen and (max-width: 600px) {
+    div.login-container{
+      display: block;
+      margin: auto;
+      width: 100%;
+      padding: 2vh;
+      background: white;
+    }
+  }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 768px) {
+    div.login-container{
+      display: block;
+      margin: auto;
+      width: 100%;
+      padding: 2vh;
+      background: white;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    div.login-container{
+      display: block;
+      margin: auto;
+      width: 100%;
+      padding: 2vh;
+      background: white;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    div.login-container{
+      display: block;
+      margin: auto;
+      width: 100%;
+      padding: 2vh;
+      background: white;
+    }
+  }
+  
+  .login-container{
+    display: block;
+    margin: auto;
+    width: 25%;
+    padding: 2vh;
+    background: white;
+  }
+  .login-spacer1{
+    height: 40vh;
+  }
+  
+  #lock-icon{
+    line-height: 56px;
+    color: #fff;
+  }
+  .buttons .login{
+    padding-top: -1px;
+    padding-bottom: 1vh;
+}
+
+.buttons .login > button{
+    width: 40%;
+}
+button{
+    margin: 4%;
+}
+.buttons .register{
+    display: flex;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+    justify-content: space-between;
+}
+.image{
+  height: 1010px;
+}
+  

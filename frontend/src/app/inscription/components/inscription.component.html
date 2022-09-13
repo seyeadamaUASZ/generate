@@ -1,0 +1,149 @@
+<section class="menu menu2 cid-sjq2uSAeZ4" once="menu" id="menu2-0">
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+    <div style="padding-left: 9%;">
+      <div class="navbar-brand">
+        <span class="navbar-logo">
+          <a href="index.html#top">
+            <img style=" width: 200px;height: 50px; margin: 15px 516px 25px 0;object-fit: contain;" *ngIf="appLogo"
+              src="{{appLogo}}" alt="Logo" class="">
+          </a>
+        </span>
+        <span *ngIf="!appLogo" class="navbar-caption-wrap"><a class="navbar-caption text-white text-primary display-7"
+            href="index.html#top">{{appName}}</a>
+        </span>
+        <!-- <div class="row">
+          <div class="col-sm-11"></div>
+          <div class="col-sm-1 ">
+            <div  style="font-size: 13px;margin-left: 20%;"> 
+              <a href="">Aide ?</a>
+            </div>
+           </div>
+
+        </div> -->
+       
+
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      
+
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 2%;">
+         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#content15-4">
+              {{'landing.apropos' | translate}}</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#features3-5">
+              {{'landing.services' | translate}}</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#content17-g">
+              FAQ</a></li>
+          <li class="nav-item"><a class="nav-link link text-white text-primary display-4"
+              href="index.html#form5-7">{{'landing.contact' | translate}}</a>
+          </li>
+
+        </ul>
+        <div  style="font-size: 13px;margin-left: 40%;margin-top: -23%;"> 
+          <a href="">Aide ?</a>
+        </div>
+        <div class="navbar-buttons mbr-section-btn" style="margin-top: -3%;">
+          <a class="btn btn-primary display-4" routerLink="/inscription">
+            {{'landing.btnInscription' | translate}}</a>
+        </div>
+
+      </div> -->
+    </div>
+      <div  style="font-size: 13px; margin-right: 12%;"> 
+        <a style="color: white;" routerLink="/login">{{'landing.login' | translate}} </a>
+      </div>
+  </nav>
+</section>
+
+<div style="padding-left:11% ;padding-right:10%;padding-top: 4rem;">
+  <div class="row">
+    <div class="col-sm-8 col-lg-8 col-md-8 ">
+      <div><br>
+        <img class="imag"  *ngIf="!imageAccueil" src="assets/images/gainde.jpg" srcset="assets/images/gainde.jpg 2x,
+        assets/images/gainde.jpg 3x" >
+      </div>
+      <div  *ngIf="imageAccueil">
+        <img class="imag"  height="600"  [src]="imageAccueil" srcset="imageAccueil 2x,
+        imageAccueil 3x">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <mat-card style="height:90%  ; border-radius: 10px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);  background-color: #fff; ">
+        <div>
+          <!-- <div class="login-spacer"></div> -->
+<br>
+          <div class="login-container">
+            <span style="color: #5f5f5f;font-size: 14px;" class="centrer">
+             <h3><b>{{'inscription.utilisateur' | translate}}</b> </h3><br>
+             <!-- <h4>Connexion</h4> -->
+            </span><br>
+            <form class="" [formGroup]="InscriptionForm" (ngSubmit)="onSubmit()">
+              <mat-form-field appearance="fill">
+                <mat-label>{{'inscription.prenom' | translate}}</mat-label>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <input matInput placeholder="{{'inscription.prenom' | translate}}" type="text" formControlName="insPrenom"
+                  required>
+                <mat-error *ngIf="f.insPrenom.errors">
+                  {{'control.prenom' | translate}} </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>{{'inscription.nom' | translate}}</mat-label>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <input matInput placeholder="{{'inscription.nom' | translate}}" type="text" formControlName="insNom"
+                  required>
+                <mat-error *ngIf="f.insNom.errors">
+                  {{'control.nom' | translate}} </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>{{'inscription.username' | translate}}</mat-label>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <input matInput placeholder="{{'inscription.username' | translate}}" type="text"
+                  formControlName="insUsername" required>
+                <mat-error *ngIf="f.insUsername.errors">
+                  {{'control.username' | translate}} </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>{{'inscription.telephone' | translate}}</mat-label>
+                <mat-icon matSuffix>phone</mat-icon>
+                <input matInput placeholder="{{'inscription.telephone' | translate}}" type="tel"
+                  pattern="[+]{0,1}[0-9]{0,15}" formControlName="insTelephone" required>
+                <mat-error *ngIf="f.insTelephone.errors">
+                  {{'control.telephone' | translate}} </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>{{'inscription.email' | translate}}</mat-label>
+                <mat-icon matSuffix>email</mat-icon>
+                <input matInput placeholder="{{'inscription.email' | translate}}" type="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="insEmail" required>
+                <mat-error *ngIf="f.insEmail.errors">
+                  {{'control.email' | translate}} </mat-error>
+              </mat-form-field>
+              <div class="buttons">
+                <div class="login">
+                  <button mat-stroked-button color="warn" (click)="closeDialog()"
+                    type="button">{{'btn_fermer' | translate}}</button>
+                  <button mat-raised-button color="primary" type="submit">{{'btn_valider' | translate}}</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+
+  </div>
+</div>
+
+
